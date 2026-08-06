@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_home"
+        android:title="Home"
+        android:icon="@drawable/home">
+    </item>
+
+    <item
+        android:id="@+id/item_perfil"
+        android:title="perfil"
+        android:icon="@drawable/ic_perfil">
+    </item>
+
+    <item
+        android:id="@+id/item_progreso"
+        android:title="Progreso"
+        android:icon="@drawable/ic_progreso">
+    </item>
+    <item
+        android:id="@+id/bt_clases"
+        android:title="Clases"
+        android:icon="@drawable/ic_clases">
+    </item>
+
+    <item
+        android:id="@+id/item_membresia"
+        android:title="Membresia"
+        android:icon="@drawable/ic_membresia">
+
+
+    </item>
+
+</menu>

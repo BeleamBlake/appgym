@@ -1,6 +1,19 @@
 <resources>
+
+    //Login
     <string name="app_name">appGYM</string>
-    <string name="user_name">Nombre de usuario</string>
+    <string name="user_name">Correo Electronico</string>
     <string name="pasword">Contraseña</string>
     <string name="bt_login">Iniciar Sesion</string>
+    <string name="formulario">Nuevo Miembro </string>
+    <string name="registro">Registrar usuario</string>
+    <string name="aqui">Click aqui</string>
+    <string name="logo">Logo tipo de applicacion</string>
+
+    //formulario
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="telefono">Celular</string>
+    <string name="correo">Correo Electronico</string>
+    <string name="bt_formulario">Registra Miembro</string>
 </resources>
