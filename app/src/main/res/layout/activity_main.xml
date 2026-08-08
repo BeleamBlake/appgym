@@ -14,7 +14,7 @@
 
 <View
     android:layout_width="0dp"
-    android:layout_height="100dp"/>
+    android:layout_height="50dp"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,6 +123,32 @@
                 android:layout_height="wrap_content"
                 android:text="@string/aqui"
                 android:backgroundTint="@color/color_login"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="0dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recuperar" />
+            <View
+                android:layout_width="10dp"
+                android:layout_height="0dp"/>
+            <Button
+                android:id="@+id/bt_recuperar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aqui"
+                android:backgroundTint="@color/color_login"/>
+
 
         </LinearLayout>
 

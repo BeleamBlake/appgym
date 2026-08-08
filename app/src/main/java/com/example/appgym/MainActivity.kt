@@ -67,6 +67,30 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btRecuperar = findViewById<Button>(R.id.bt_recuperar)
+        btRecuperar.setOnClickListener {
+        val intent = Intent(this, RecuperarPassword::class.java)
+        startActivity(intent)
+        }
+        fun onStart() {
+            super.onStart()
 
+            // 2. Obtener el usuario actual (Firebase lee automáticamente el token local)
+            val usuarioActual = auth.currentUser
+
+            // 3. Evaluar si existe una sesión activa almacenada
+            if (usuarioActual != null) {
+                // EL TOKEN EXISTE Y ES VÁLIDO: Ir directamente a la pantalla principal
+                val intent = Intent(this, MainActivity2::class.java)
+                startActivity(intent)
+                finish() // Cierra el Splash para que el usuario no vuelva atrás con el botón de regresar
+            } else {
+                // NO HAY TOKEN O EXPIRÓ: Enviar a iniciar sesión
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+        }
     }
 }

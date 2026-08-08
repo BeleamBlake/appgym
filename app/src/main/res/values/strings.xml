@@ -9,6 +9,7 @@
     <string name="registro">Registrar usuario</string>
     <string name="aqui">Click aqui</string>
     <string name="logo">Logo tipo de applicacion</string>
+    <string name="recuperar">Recuperar contraseña</string>
 
     //formulario
     <string name="nombre">Nombre</string>
@@ -19,6 +20,10 @@
 
     //ventana home
     <string name="cerrar">Cerrar Sesion</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+   //recuperar contraseña
+    <string name="correoregis">Correo electronico registrado</string>
+    <string name="enviarcorreo">Enviar correo de recuperacion</string>
+
+
 </resources>
