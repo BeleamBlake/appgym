@@ -52,17 +52,14 @@ class MainActivity3 : AppCompatActivity() {
                 return@setOnClickListener
             }
             //aqui valida el fomato del correo
-            if (!correoValido){
-                Toast.makeText(this, SingletonData.arrayList_mensajes[1], Toast.LENGTH_SHORT).show()
-            }
+           // if (!correoValido){
+             //   Toast.makeText(this, SingletonData.arrayList_mensajes[1], Toast.LENGTH_SHORT).show()
+           // }
 
             auth.createUserWithEmailAndPassword(corr, pass)
                 .addOnCompleteListener { tareaAuth ->
                     if (tareaAuth.isSuccessful){
-
                         //aqui asigna el id unico que nos da la base de datos
-                        //val idmiembro = auth.currentUser?.uid.toString()
-
                         val idmiembro: String = tareaAuth.result?.user?.uid.toString()
 
                         val usuariomap = hashMapOf(
@@ -80,6 +77,7 @@ class MainActivity3 : AppCompatActivity() {
                                     Toast.makeText(this, "Miembro registrado con éxito", Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this, MainActivity::class.java)
                                     startActivity(intent)
+                                    finish()
                                 }
                                 .addOnFailureListener { e ->
                                     Toast.makeText(this, "Error al guardar datos: ${e.message}", Toast.LENGTH_SHORT).show()

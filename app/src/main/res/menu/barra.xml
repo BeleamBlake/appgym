@@ -18,7 +18,7 @@
         android:icon="@drawable/ic_progreso">
     </item>
     <item
-        android:id="@+id/bt_clases"
+        android:id="@+id/item_clases"
         android:title="Clases"
         android:icon="@drawable/ic_clases">
     </item>
