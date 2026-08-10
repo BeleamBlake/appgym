@@ -33,82 +33,36 @@ class MainActivity3 : AppCompatActivity() {
         val nombre = findViewById<EditText>(R.id.for_nom)
         val ap = findViewById<EditText>(R.id.for_ap)
         val cel = findViewById<EditText>(R.id.for_celular)
-        val email = findViewById<EditText>(R.id.for_correo)
+        val  email = findViewById<EditText>(R.id.for_correo)
         val password = findViewById<EditText>(R.id.for_pass)
 
         bt_nuevo.setOnClickListener {
-
-            val correoRegex = Regex("^[A-Za-z+_.-]+@[A-Za-z0-9.-]+$")
-            val cellRegex = Regex("[0-9]{10}")
-            val passRegex = Regex("[0-9]{6,}$")
-            val nomRegex = Regex("[A-Za-záeéiíoóuúüñAÁEÉIÍOÓUÚÜÑ]+$")
-            val apRegex = Regex("[A-Za-záeéiíoóuúüñAÁEÉIÍOÓUÚÜÑ]+$")
+            val correoRegex = Regex(SingletonData.arrayList_validaciones[0])
             val nom = nombre.text.toString().trim()
-            val ape = ap.text.toString().trim()
+            val  ape = ap.text.toString().trim()
             val celu = cel.text.toString().trim()
             val corr = email.text.toString().trim()
             val pass = password.text.toString().trim()
 
             val correoValido = correoRegex.matches(corr)
-            val celValido = cellRegex.matches(celu)
-            val nombreValido = nomRegex.matches(nom)
-            val apellidoValido = apRegex.matches(ape)
-            val passValido = passRegex.matches(pass)
 
             // aqui acemos validaciones por si los campos estan vacios
-            if (nom.isEmpty() || ape.isEmpty() || celu.isEmpty() || corr.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Los campos no puden estar vacios", Toast.LENGTH_SHORT).show()
+            if (nom.isEmpty() || ape.isEmpty() || celu.isEmpty() || corr.isEmpty() || pass.isEmpty() ){
+                Toast.makeText(this, SingletonData.arrayList_mensajes[0], Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             //aqui valida el fomato del correo
-            if (!correoValido) {
-                Toast.makeText(
-                    this@MainActivity3,
-                    "Correo invalido",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            if (!passValido) {
-                Toast.makeText(
-                    this@MainActivity3,
-                    "Contraseña invalida",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            if (!nombreValido) {
-                Toast.makeText(
-                    this@MainActivity3,
-                    "Nombre invalido",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-
-            if (!celValido) {
-                Toast.makeText(
-                    this@MainActivity3,
-                    "Numero de Celular invalido",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-            if (!apellidoValido) {
-                Toast.makeText(
-                    this@MainActivity3,
-                    "Apellido invalido",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
+            if (!correoValido){
+                Toast.makeText(this, SingletonData.arrayList_mensajes[1], Toast.LENGTH_SHORT).show()
             }
 
             auth.createUserWithEmailAndPassword(corr, pass)
                 .addOnCompleteListener { tareaAuth ->
-                    if (tareaAuth.isSuccessful) {
-                        //aqui_asigna el_id unico que nos da la base de datos
+                    if (tareaAuth.isSuccessful){
+
+                        //aqui asigna el id unico que nos da la base de datos
+                        //val idmiembro = auth.currentUser?.uid.toString()
+
                         val idmiembro: String = tareaAuth.result?.user?.uid.toString()
 
                         val usuariomap = hashMapOf(
@@ -119,35 +73,24 @@ class MainActivity3 : AppCompatActivity() {
                             "password" to pass
                         )
                         // 4. Guardar en la colección "Miembros" usando el userId como nombre del documento
-                        db.collection("miembros").document(idmiembro)
-                            .set(usuariomap)
-                            .addOnSuccessListener {
-                                Toast.makeText(
-                                    this@MainActivity3,
-                                    "Miembro registrado con exito",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                val intent = Intent(this@MainActivity3, MainActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(
-                                    this@MainActivity3,
-                                    "Error en la coneccion con la Base de datos, ",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
+                        if (usuariomap != null) {
+                            db.collection("miembros").document(idmiembro)
+                                .set(usuariomap)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Miembro registrado con éxito", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                }
+                                .addOnFailureListener { e ->
+                                    Toast.makeText(this, "Error al guardar datos: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                        }
                     } else {
-                        Toast.makeText(
-                            this@MainActivity3,
-                            "No se pudo registrar al nuevo miembro",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        Toast.makeText(this, "Error en registro: ${tareaAuth.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
         }
+
     }
+
 }
-
-

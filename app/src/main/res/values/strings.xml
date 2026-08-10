@@ -9,7 +9,6 @@
     <string name="registro">Registrar usuario</string>
     <string name="aqui">Click aqui</string>
     <string name="logo">Logo tipo de applicacion</string>
-    <string name="recuperar">Recuperar contraseña</string>
 
     //formulario
     <string name="nombre">Nombre</string>
@@ -18,12 +17,31 @@
     <string name="correo">Correo Electronico</string>
     <string name="bt_formulario">Registra Miembro</string>
 
-    //ventana home
-    <string name="cerrar">Cerrar Sesion</string>
+    <!-- perfil -->
+    <string name="membresia_label">Membresia:</string>
+    <string name="membresia_activa">ACTIVA</string>
+    <string name="cerrar_sesion">cerrar sesion</string>
+    <string name="editar">Editar</string>
+    <string name="miembro_label">Miembro:</string>
+    <string name="correo_label">Correo:</string>
+    <string name="fecha_nacimiento_label">Fecha nacimiento:</string>
+    <string name="contacto_label">Contato:</string>
+    <string name="bt_cambiar_pass">Cambiar contraseña</string>
+    <string name="numero_membresia_label">Numero de  membresia:</string>
+    <string name="resumen_actividad_label">Resumen de actividad:</string>
+    <string name="actividad_header">Actividad</string>
+    <string name="act_box">1.- clase de box</string>
+    <string name="act_spinning">2.- Sppinig</string>
+    <string name="act_yoga">3.- yoga</string>
+    <string name="act_crossfit">4.- crosfit</string>
+    <string name="act_pesas">5.- Pesas</string>
+    <string name="act_cardio">6.- Cardio</string>
+    <string name="clases_racha_label">Clases en Racha</string>
 
-   //recuperar contraseña
-    <string name="correoregis">Correo electronico registrado</string>
-    <string name="enviarcorreo">Enviar correo de recuperacion</string>
-
-
+    <string name="nombre_ejemplo">Samuel Garcia Quistian</string>
+    <string name="correo_ejemplo">samusgar@gmail.com</string>
+    <string name="fecha_ejemplo">20/09/2001</string>
+    <string name="contacto_ejemplo">2206153338</string>
+    <string name="numero_membresia_ejemplo">0117</string>
+    <string name="clases_racha_ejemplo">1</string>
 </resources>

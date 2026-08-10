@@ -2,12 +2,12 @@ package com.example.appgym
 
 object SingletonData {
 
-    lateinit var  usuario: String
-    lateinit var  usuasrioPass: String
+    lateinit var usuario: String
+    lateinit var usuasrioPass: String
     lateinit var arrayList_mensajes: ArrayList<String>
     lateinit var arrayList_validaciones: ArrayList<String>
 
-    init{
+    init {
         arrayList_mensajes = ArrayList<String>()
 
         arrayList_mensajes.add(0, "Los campos no pueden estar vacios")
@@ -32,5 +32,4 @@ object SingletonData {
 
 
     }
-
 }
