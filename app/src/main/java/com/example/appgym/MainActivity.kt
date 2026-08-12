@@ -31,19 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         val username = findViewById<EditText>(R.id.user_login)
         val userpass = findViewById<EditText>(R.id.pass_login)
-        val bt_entrar = findViewById<Button>(R.id.bt_inicio)
+        val bt_entrar = findViewById<Button>(R.id.bt_registro)
 
         bt_entrar.setOnClickListener {
             val correo = username.text.toString().trim()
             val contrasena = userpass.text.toString().trim()
-
             //Validamos que los campos no esten vacios
-
             if (correo.isEmpty() || contrasena.isEmpty()){
                 Toast.makeText(this, "No puede estar campos vacíos.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             //aqui inicia sesion en firebase
             auth.signInWithEmailAndPassword(correo, contrasena)
                 .addOnCompleteListener { tareaAuth->
@@ -61,12 +58,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val boton_registro = findViewById<Button>(R.id.bt_registro)
+       /* val boton_registro = findViewById<Button>(R.id.bt_registro)
         boton_registro.setOnClickListener {
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
-
+*/
         val btRecuperar = findViewById<Button>(R.id.bt_recuperar)
         btRecuperar.setOnClickListener {
         val intent = Intent(this, RecuperarPassword::class.java)

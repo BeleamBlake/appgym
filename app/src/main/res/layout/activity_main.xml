@@ -96,7 +96,7 @@
             android:layout_gravity="center">
 
             <Button
-                android:id="@+id/bt_inicio"
+                android:id="@+id/bt_registro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bt_login"
@@ -111,7 +111,9 @@
             android:layout_height="20dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
 
             <View
                 android:layout_width="40dp"
@@ -119,7 +121,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="recuperar" />
+                android:text="recuperar"
+                android:layout_marginLeft="20dp"/>
             <View
                 android:layout_width="10dp"
                 android:layout_height="0dp"/>
