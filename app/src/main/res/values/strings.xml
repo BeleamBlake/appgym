@@ -9,6 +9,7 @@
     <string name="registro">Registrar usuario</string>
     <string name="aqui">Click aqui</string>
     <string name="logo">Logo tipo de applicacion</string>
+    <string name="enviar"> Enviar</string>
 
     //formulario
     <string name="nombre">Nombre</string>
