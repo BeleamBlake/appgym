@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/fondo_registrar_entrada">
+
+    <!-- Título -->
+
+    <!-- Peso -->
+    <TextView
+        android:id="@+id/tituloFormulario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#B71C1C"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:text="Registrar Entrada"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Peso"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/txtPeso"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Ingresar"
+        android:textSize="16sp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/fondo_edittext"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Estatura -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estatura"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/txtEstatura"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Ingresar"
+        android:textSize="16sp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/fondo_edittext"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Porcentaje de grasa -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Porcentaje de Grasa"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="6dp" />
+
+    <EditText
+        android:id="@+id/txtGrasa"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint=""
+        android:textSize="16sp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/fondo_edittext"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Fecha -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Fecha"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jun 5, 2023"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/fondo_boton"
+        android:text="REGISTRAR"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+</LinearLayout>

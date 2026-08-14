@@ -61,11 +61,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val boton_registro = findViewById<Button>(R.id.bt_registro)
-        boton_registro.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
-            startActivity(intent)
-        }
+//        val boton_registro = findViewById<Button>(R.id.bt_registro)
+//        boton_registro.setOnClickListener {
+//            val intent = Intent(this, MainActivity3::class.java)
+//            startActivity(intent)
+//        }
 
         val btRecuperar = findViewById<Button>(R.id.bt_recuperar)
         btRecuperar.setOnClickListener {
