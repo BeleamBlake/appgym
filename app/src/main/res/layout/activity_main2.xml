@@ -20,9 +20,6 @@
     android:text="Ventana para hacer el bloqueo"/>
 
 </LinearLayout>
-
-
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contenedor_fragment"
         android:layout_width="match_parent"
@@ -30,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/menuBajo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,5 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/barra"/>
+        app:menu="@menu/barra">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

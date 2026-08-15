@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Bloqueo">
+
+<LinearLayout
+    android:id="@+id/bloqueMembresia"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+
+    <ImageView
+        android:id="@+id/iconLock"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_bloqueo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_margin="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/titleExpired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Membresía vencida"
+        android:textColor="#D32F2F"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/iconLock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_margin="20dp"/>
+
+
+    <TextView
+        android:id="@+id/messageExpired"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
+        android:textColor="#455A64"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/titleExpired"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_margin="16dp"
+        app:layout_constraintWidth_percent="0.8"/>
+
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:textColor="#1976D2"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="15dp"/>
+
+
+
+</LinearLayout>
+
+</FrameLayout>

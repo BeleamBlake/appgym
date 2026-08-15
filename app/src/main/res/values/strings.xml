@@ -45,4 +45,6 @@
     <string name="contacto_ejemplo">2206153338</string>
     <string name="numero_membresia_ejemplo">0117</string>
     <string name="clases_racha_ejemplo">1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
