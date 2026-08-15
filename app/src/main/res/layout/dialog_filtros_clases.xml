@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_tarjeta_clase"
+    android:padding="20dp">
+
+    <!-- ===== Header: cerrar / titulo / limpiar ===== -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/btn_cerrar_filtros"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_cerrar_x"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Filtros"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/btn_limpiar_filtros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limpiar"
+            android:textSize="14sp"
+            android:textColor="#7C4DFF"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="20dp"/>
+
+    <!-- ===== Tipo de clase ===== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de clase"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/chip_tipo_todas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:textColor="#FFFFFF"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_chip_morado"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_tipo_yoga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yoga"
+            android:textColor="#000000"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_tipo_spinning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spinning"
+            android:textColor="#000000"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/chip_tipo_funcional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Funcional"
+            android:textColor="#000000"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_tipo_pilates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pilates"
+            android:textColor="#000000"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_tipo_zumba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zumba"
+            android:textColor="#000000"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="22dp"/>
+
+    <!-- ===== Dia de la semana ===== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Día de la semana"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/chip_dia_lun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lun"
+            android:textColor="#FFFFFF"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_chip_morado"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_dia_mar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mar"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_dia_mie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mié"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_dia_jue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jue"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/chip_dia_vie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vie"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_dia_sab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sáb"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:id="@+id/chip_dia_dom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dom"
+            android:textColor="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/bg_fecha"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="22dp"/>
+
+    <!-- ===== Hora: Desde / Hasta ===== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desde"
+                android:textSize="12sp"
+                android:textColor="#8A8A8A"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="6dp"/>
+
+            <LinearLayout
+                android:id="@+id/campo_hora_desde"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/boton_rojo_registrar">
+
+                <TextView
+                    android:id="@+id/txt_hora_desde"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="06:00"
+                    android:textSize="14sp"
+                    android:textColor="#000000"/>
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_chevron_derecha"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hasta"
+                android:textSize="12sp"
+                android:textColor="#8A8A8A"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="6dp"/>
+
+            <LinearLayout
+                android:id="@+id/campo_hora_hasta"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/boton_rojo_registrar">
+
+                <TextView
+                    android:id="@+id/txt_hora_hasta"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="22:00"
+                    android:textSize="14sp"
+                    android:textColor="#000000"/>
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_chevron_derecha"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="22dp"/>
+
+    <!-- ===== Lugar ===== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lugar"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/campo_lugar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:background="@drawable/boton_rojo_registrar">
+
+        <TextView
+            android:id="@+id/txt_lugar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Todos los lugares"
+            android:textSize="14sp"
+            android:textColor="#000000"/>
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_chevron_derecha"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="26dp"/>
+
+    <!-- ===== Boton Aplicar filtros ===== -->
+    <TextView
+        android:id="@+id/btn_aplicar_filtros"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:text="Aplicar filtros"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_chip_morado"/>
+
+</LinearLayout>

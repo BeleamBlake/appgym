@@ -1,59 +1,46 @@
 package com.example.appgym
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Clases.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Clases : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         return inflater.inflate(R.layout.fragment_clases, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Clases.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Clases().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val rvClases = view.findViewById<RecyclerView>(R.id.rv_clases)
+
+        // TODO: reemplazar por los datos reales que traigas de tu API
+        // (GET /api/clases del dia seleccionado, por ejemplo)
+        val listaClases = listOf(
+            ClaseGrupal("Yoga", "Ana Lopez", "08:00 - 09:00", "Sala A", 12, 20, "yoga"),
+            ClaseGrupal("Spinning", "Carlos Ruiz", "09:30 - 10:30", "Sala B", 15, 18, "spinning"),
+            ClaseGrupal("Funcional", "Maria Torres", "11:00 - 12:00", "Sala C", 8, 15, "funcional"),
+            ClaseGrupal("Pilates", "Ana Lopez", "17:00 - 18:00", "Sala A", 10, 20, "pilates")
+        )
+
+        val adapter = ClasesAdapter(listaClases) { claseSeleccionada ->
+            // Aca abrimos el detalle de la clase tocada
+            // (descripcion, entrenador, duracion, capacidad, boton reservar/cancelar)
+        }
+
+        rvClases.layoutManager = LinearLayoutManager(requireContext())
+        rvClases.adapter = adapter
+
+        // Espacio entre tarjetas, sin tener que tocar el XML de cada item
+        rvClases.addItemDecoration(EspaciadoVertical(12))
     }
 }
