@@ -2,6 +2,7 @@ package com.example.appgym
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -92,6 +93,8 @@ class MainActivity2 : AppCompatActivity() {
                 }
             }
     }
+
+
 
 
     private fun cargarFragment(fragment: Fragment) {

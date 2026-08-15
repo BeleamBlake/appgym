@@ -19,11 +19,7 @@
         android:id="@+id/iconLock"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_bloqueo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_margin="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:src="@drawable/ic_bloqueo"/>
 
 
     <TextView
@@ -33,11 +29,7 @@
         android:text="Membresía vencida"
         android:textColor="#D32F2F"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/iconLock"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="20dp"/>
+        android:textStyle="bold"/>
 
 
     <TextView
@@ -47,17 +39,11 @@
         android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
         android:textColor="#455A64"
         android:textSize="16sp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/titleExpired"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_margin="16dp"
-        app:layout_constraintWidth_percent="0.8"/>
+        android:gravity="center"/>
 
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/btnvolver"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="Volver"

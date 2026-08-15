@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 class Bloqueo : Fragment() {
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,6 +17,8 @@ class Bloqueo : Fragment() {
     ): View? {
         // Infla el diseño XML de tu pantalla de bloqueo
         return inflater.inflate(R.layout.fragment_bloqueo, container, false)
+
     }
+
 
 }
