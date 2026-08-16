@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Membresia Ruedas de Entrenamiento"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
 
@@ -59,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:text="Proxima Fecha de Renovacion: 21/01/2010"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -70,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:text="Plan Actual: Premiun Pro Max Mameitor"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -81,14 +83,14 @@
                     android:layout_height="wrap_content"
                     android:text="• Clases ilimitadas"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Suplementos ilimitados"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -103,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Seleccionar Plan"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:paddingStart="22dp"
                         android:paddingEnd="22dp"
@@ -136,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Membresia Choza de los pequeñoines"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
 
@@ -161,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:text="Proxima Fecha de Renovacion: 03/02/2010"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -172,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:text="Plan Actual: Chosa de los pequeñoines"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -183,21 +185,21 @@
                     android:layout_height="wrap_content"
                     android:text="• Suplementos ilimitados"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Acceso a maquinas sin restriccion"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Prioridad a reserva de clases"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -212,7 +214,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ver Membresias"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:paddingStart="22dp"
                         android:paddingEnd="22dp"
@@ -245,7 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Membresia Pro Max Mameitor"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
 
@@ -270,7 +272,7 @@
                     android:layout_height="wrap_content"
                     android:text="Proxima Fecha de Renovacion: 21/01/2010"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -281,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:text="Plan Actual: Premiun Pro Max Mameitor"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -292,28 +294,28 @@
                     android:layout_height="wrap_content"
                     android:text="• Clases ilimitadas"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Suplementos ilimitados"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Acceso a maquinas sin restriccion"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Prioridad a reserva de clases"
                     android:textSize="14sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <View
                     android:layout_width="0dp"
@@ -328,7 +330,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Seleccionar Plan"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:paddingStart="22dp"
                         android:paddingEnd="22dp"

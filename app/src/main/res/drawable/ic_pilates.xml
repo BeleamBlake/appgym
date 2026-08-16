@@ -3,10 +3,11 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    <!-- CAMBIOS DE INTERFAZ CHIDO: iconografía adaptada a la paleta. -->
     <path
-        android:fillColor="#1565C0"
+        android:fillColor="@color/accent_gold"
         android:pathData="M5,15a1.8,1.8 0,1 0,1.8 1.8,1.8 1.8,0 0,0 -1.8,-1.8zM9,15.5l-1.2,-2.5 3,-2.5 2,1.5 4,-1v1.7l-3.3,1 -1.7,-1.2 -1.8,1.5 1,2z"/>
     <path
-        android:fillColor="#1565C0"
+        android:fillColor="@color/accent_gold"
         android:pathData="M18,7a1.5,1.5 0,1 0,1.5 1.5,1.5 1.5,0 0,0 -1.5,-1.5z"/>
 </vector>

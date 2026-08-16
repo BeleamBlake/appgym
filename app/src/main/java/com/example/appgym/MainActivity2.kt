@@ -1,8 +1,8 @@
 package com.example.appgym
 
+import android.R.attr.fragment
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,14 +15,20 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity2 : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var ventanaInicial: LinearLayout
     private lateinit var menuBajo: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main2)
+
+        // Inicializar Firebase PRIMERO
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,9 +42,25 @@ class MainActivity2 : AppCompatActivity() {
 
             insets
         }
+
+        menuBajo = findViewById(R.id.menuBajo)
+
+        // Verificar usuario
         val currentUser = auth.currentUser
-        val menuBajo = findViewById<BottomNavigationView>(R.id.menuBajo)
-        val userId = auth.currentUser!!.uid
+
+        if (currentUser == null) {
+            Toast.makeText(
+                this,
+                "No hay sesión activa",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            return
+        }
+
+        val userId = currentUser.uid
+
+        // Menú inferior
         menuBajo.setOnItemSelectedListener { item ->
 
             val fragment: Fragment = when (item.itemId) {
@@ -61,57 +83,52 @@ class MainActivity2 : AppCompatActivity() {
             true
         }
 
-        // Fragment que aparece al iniciar
-        cargarFragment(home())
-
-        auth = FirebaseAuth.getInstance()
-        db = FirebaseFirestore.getInstance()
-
-
-        db.collection("miembros").document(userId)
+        // Escuchar estado de membresía
+        db.collection("miembros")
+            .document(userId)
             .addSnapshotListener { snapshot, e ->
-                if (e != null) return@addSnapshotListener
 
-                val estadoMembresia = snapshot?.getString("estado")
+                if (e != null) {
+                    Toast.makeText(
+                        this,
+                        "Error al consultar membresía",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                if (estadoMembresia == "inactiva" || estadoMembresia == "vencida") {
-                    // 1. Mostrar el Fragment de Bloqueo en el contenedor
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.contenedor_fragment, Bloqueo())
-                        .commit()
+                    return@addSnapshotListener
+                }
 
-                    // 2. Ocultar el menú inferior
+                if (snapshot == null || !snapshot.exists()) {
+                    return@addSnapshotListener
+                }
+
+                val estadoMembresia = snapshot.getString("estado")
+
+                if (estadoMembresia == "inactiva" ||
+                    estadoMembresia == "vencida"
+                ) {
+
+                    // Mostrar pantalla de bloqueo
+                    cargarFragment(Bloqueo())
+
+                    // Ocultar menú
                     menuBajo.visibility = View.GONE
-                } else {
-                    // Si la membresía está activa, mostrar tu fragmento principal (ejemplo: HomeFragment)
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.contenedor_fragment, home()) // Reemplaza por el Fragment inicial de tu app
-                        .commit()
 
-                    // Mostrar el menú inferior
+                } else {
+
+                    // Mostrar Home
+                    cargarFragment(home())
+
+                    // Mostrar menú
                     menuBajo.visibility = View.VISIBLE
                 }
             }
     }
-
-
-
 
     private fun cargarFragment(fragment: Fragment) {
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.contenedor_fragment, fragment)
             .commit()
-    }
-
-
-    private fun escucharEstadoMembresia() {
-        val currentUser = auth.currentUser
-
-        if (currentUser == null) {
-            // Manejar caso donde el usuario no ha iniciado sesión
-            Toast.makeText(this, "No hay sesión activa", Toast.LENGTH_SHORT).show()
-            return
-        }
     }
 }

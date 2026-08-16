@@ -3,33 +3,34 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    <!-- CAMBIOS DE INTERFAZ CHIDO: iconografía adaptada a la paleta. -->
 
     <!-- Barra central -->
     <path
-        android:fillColor="#000000"
+        android:fillColor="@color/text_primary"
         android:pathData="M9,11h6v2H9z"/>
 
     <!-- Disco izquierdo exterior -->
     <path
-        android:strokeColor="#000000"
+        android:strokeColor="@color/text_primary"
         android:strokeWidth="1.6"
         android:pathData="M3,8v8"/>
 
     <!-- Disco izquierdo interior -->
     <path
-        android:strokeColor="#000000"
+        android:strokeColor="@color/text_primary"
         android:strokeWidth="1.6"
         android:pathData="M6,6v12"/>
 
     <!-- Disco derecho interior -->
     <path
-        android:strokeColor="#000000"
+        android:strokeColor="@color/text_primary"
         android:strokeWidth="1.6"
         android:pathData="M18,6v12"/>
 
     <!-- Disco derecho exterior -->
     <path
-        android:strokeColor="#000000"
+        android:strokeColor="@color/text_primary"
         android:strokeWidth="1.6"
         android:pathData="M21,8v8"/>
 

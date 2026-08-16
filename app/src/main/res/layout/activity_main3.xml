@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajuste visual de fondo. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".MainActivity3">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/app_background"
         android:orientation="vertical">
-<View
-    android:layout_width="0dp"
-    android:layout_height="15dp"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="15dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,135 +24,135 @@
             <View
                 android:layout_width="15dp"
                 android:layout_height="0dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario"
-            style="@style/formulario"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/formulario"
+                style="@style/formulario"/>
         </LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_meditacion"/>
-</LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="10dp"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
+            android:layout_gravity="center">
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_nombre">
-            <EditText
-                android:id="@+id/for_nom"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                style="@style/nombre"
-                android:hint="@string/nombre"
-                android:maxLength="15"
-                android:maxLines="1"
-                android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-<View
-    android:layout_width="0dp"
-    android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_nombre">
-                <EditText
-                    android:id="@+id/for_ap"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/apellido"
-                    android:maxLength="30"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_celular">
-                <EditText
-                    android:id="@+id/for_celular"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/telefono"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_correo">
-                <EditText
-                    android:id="@+id/for_correo"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/correo"
-                    android:maxLength="40"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_pass">
-                <EditText
-                    android:id="@+id/for_pass"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:inputType="textPassword"
-                    android:hint="@string/pasword"
-                    android:maxLength="40"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                android:src="@drawable/ic_meditacion"/>
         </LinearLayout>
-</LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="10dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_nombre">
+                    <EditText
+                        android:id="@+id/for_nom"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        style="@style/nombre"
+                        android:hint="@string/nombre"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_nombre">
+                    <EditText
+                        android:id="@+id/for_ap"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        style="@style/nombre"
+                        android:hint="@string/apellido"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_celular">
+                    <EditText
+                        android:id="@+id/for_celular"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        style="@style/nombre"
+                        android:hint="@string/telefono"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_correo">
+                    <EditText
+                        android:id="@+id/for_correo"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        style="@style/nombre"
+                        android:hint="@string/correo"
+                        android:maxLength="40"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/ic_pass">
+                    <EditText
+                        android:id="@+id/for_pass"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        style="@style/nombre"
+                        android:inputType="textPassword"
+                        android:hint="@string/pasword"
+                        android:maxLength="40"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
         <View
             android:layout_width="0dp"
             android:layout_height="80dp"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-        <Button
-            android:id="@+id/nv_miembro"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bt_formulario"/>
-</LinearLayout>
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/nv_miembro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bt_formulario"/>
+        </LinearLayout>
 
     </LinearLayout>
 

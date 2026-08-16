@@ -1,58 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_background"
     tools:context=".Bloqueo">
 
-<LinearLayout
-    android:id="@+id/bloqueMembresia"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    <LinearLayout
+        android:id="@+id/bloqueMembresia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
 
 
-    <ImageView
-        android:id="@+id/iconLock"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_bloqueo"/>
+        <ImageView
+            android:id="@+id/iconLock"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_bloqueo"/>
 
 
-    <TextView
-        android:id="@+id/titleExpired"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Membresía vencida"
-        android:textColor="#D32F2F"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/titleExpired"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Membresía vencida"
+            android:textColor="@color/danger"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
 
 
-    <TextView
-        android:id="@+id/messageExpired"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
-        android:textColor="#455A64"
-        android:textSize="16sp"
-        android:gravity="center"/>
+        <TextView
+            android:id="@+id/messageExpired"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:gravity="center"/>
 
 
-    <Button
-        android:id="@+id/btnvolver"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Volver"
-        android:textColor="#1976D2"
-        android:backgroundTint="#FFFFFF"
-        android:layout_marginTop="15dp"/>
+        <Button
+            android:id="@+id/btnvolver"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Volver"
+            android:textColor="@color/accent_gold"
+            android:backgroundTint="@color/surface"
+            android:layout_marginTop="15dp"/>
 
 
 
-</LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

@@ -9,16 +9,14 @@ import android.widget.Button
 
 class Bloqueo : Fragment() {
 
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Infla el diseño XML de tu pantalla de bloqueo
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bloqueo, container, false)
-
     }
+
 
 
 }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".Membresia">
 
     <ScrollView
@@ -16,200 +19,170 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="15dp"/>
 
             <!-- ===== Fila: Membresia / Estado ... Cerrar sesion (siempre visible) ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="34dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_header_morado">
 
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="0dp"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
+            <TextView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Membresia:"
-                        android:textSize="16sp"
-                        android:textColor="#000000"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ACTIVA"
-                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:text="Membresía"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="#2E7D32"/>
+                        android:textColor="@color/text_primary"/>
+
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="?attr/selectableItemBackground">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_logout"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="cerrar sesion"
-                        android:textSize="11sp"
-                        android:textColor="#000000"/>
 
-                </LinearLayout>
-
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="0dp"/>
-
-            </LinearLayout>
 
             <!-- ============================================================ -->
             <!-- ===== Vista 1: Fechas del plan actual (se ve al abrir)  ===== -->
             <!-- ============================================================ -->
             <LinearLayout
-                android:id="@+id/vista_fechas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:visibility="visible">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/bg_tarjeta_clase"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Membresia: "
+                        android:textColor="@color/text_primary"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txt_estado_membresia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="INACTIVA"
+                        android:textColor="@color/danger"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#D32F2F"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="4dp"/>
-
+                <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:background="@drawable/bg_tarjeta_clase"
+                   android:layout_marginBottom="10dp">
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:layout_gravity="center_horizontal">
                 <TextView
                     android:id="@+id/txt_miembro_desde"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Miembro desde: 11/07/2001"
+                    android:text="Miembro desde: "
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Inicio  de plan Actual: "
-                        android:textSize="15sp"
-                        android:textColor="#000000"/>
-
+                        android:text="17/08/2026 "
+                        android:textSize="16sp"
+                        android:textColor="@color/text_primary"/>
+                   </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="horizontal"
+                       android:layout_gravity="center_horizontal">
                     <TextView
                         android:id="@+id/txt_inicio_plan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20/12/2009"
-                        android:textSize="15sp"
+                        android:text="Inicio de plan actual: "
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Proxima Fecha de Renovacion: "
-                        android:textSize="15sp"
-                        android:textColor="#000000"/>
-
+                        android:text="18/08/2026 "
+                        android:textSize="16sp"
+                        android:textColor="@color/text_primary"/>
+                   </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Proxima Fecha de Renovacion: "
+                       android:textSize="16sp"
+                       android:textStyle="bold"
+                       android:textColor="@color/text_primary"/>
                     <TextView
                         android:id="@+id/txt_proxima_renovacion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="21/01/2010"
+                        android:text="21/08/2026"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="#000000"/>
-
+                        android:textColor="@color/text_primary"/>
+</LinearLayout>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="horizontal">
-
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_tarjeta_clase"
+                    >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Plan Actual: "
                         android:textSize="15sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:id="@+id/txt_plan_actual"
@@ -218,29 +191,22 @@
                         android:text="Premiun Pro Max Mameitor"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="46dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:paddingEnd="5dp"
                         android:src="@drawable/ic_pesa_historial"/>
 
-                    <View
-                        android:layout_width="10dp"
-                        android:layout_height="0dp"/>
+
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -248,94 +214,69 @@
                         android:text="Beneficios del plan actual"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
-                </LinearLayout>
+           </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="14dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="30dp"
-                        android:layout_height="0dp"/>
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="•  Clases ilimitadas"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="4dp"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="•  Suplementos ilimitados"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="4dp"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="•  Acceso a maquinas sin restriccion"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="4dp"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="•  Prioridad a reserva de clases"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
 
                     <TextView
+                        android:layout_gravity="center_horizontal"
                         android:id="@+id/btn_ver_membresias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ver Membresias"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:paddingStart="26dp"
                         android:paddingEnd="26dp"
                         android:paddingTop="12dp"
                         android:paddingBottom="12dp"
                         android:background="@drawable/boton_rojo_registrar"/>
-
+                </LinearLayout>
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"/>
 
-            </LinearLayout>
+--
+
+
+
 
             <!-- ================================================================= -->
             <!-- ===== Vista 2: Tarjetas de planes (oculta hasta tocar el boton) === -->
@@ -362,7 +303,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Membresia Ruedas de Entrenamiento"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
 
@@ -387,7 +328,7 @@
                         android:layout_height="wrap_content"
                         android:text="Proxima Fecha de Renovacion: 21/01/2010"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -398,7 +339,7 @@
                         android:layout_height="wrap_content"
                         android:text="Plan Actual: Premiun Pro Max Mameitor"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -409,14 +350,14 @@
                         android:layout_height="wrap_content"
                         android:text="• Clases ilimitadas"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Suplementos ilimitados"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -431,7 +372,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Seleccionar Plan"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/text_primary"
                             android:textStyle="bold"
                             android:paddingStart="22dp"
                             android:paddingEnd="22dp"
@@ -462,7 +403,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Membresia Chosa de los pequeñoines"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
 
@@ -487,7 +428,7 @@
                         android:layout_height="wrap_content"
                         android:text="Proxima Fecha de Renovacion: 03/02/2010"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -498,7 +439,7 @@
                         android:layout_height="wrap_content"
                         android:text="Plan Actual: Chosa de los pequeñoines"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -509,21 +450,21 @@
                         android:layout_height="wrap_content"
                         android:text="• Suplementos ilimitados"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Acceso a maquinas sin restriccion"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Prioridad a reserva de clases"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -538,7 +479,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Seleccionar Plan"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/text_primary"
                             android:textStyle="bold"
                             android:paddingStart="22dp"
                             android:paddingEnd="22dp"
@@ -569,7 +510,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Membresia Pro Max Mameitor"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/text_primary"
                         android:textStyle="bold"
                         android:textSize="15sp"/>
 
@@ -594,7 +535,7 @@
                         android:layout_height="wrap_content"
                         android:text="Proxima Fecha de Renovacion: 21/01/2010"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -605,7 +546,7 @@
                         android:layout_height="wrap_content"
                         android:text="Plan Actual: Premiun Pro Max Mameitor"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -616,28 +557,28 @@
                         android:layout_height="wrap_content"
                         android:text="• Clases ilimitadas"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Suplementos ilimitados"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Acceso a maquinas sin restriccion"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="• Prioridad a reserva de clases"
                         android:textSize="14sp"
-                        android:textColor="#000000"/>
+                        android:textColor="@color/text_primary"/>
 
                     <View
                         android:layout_width="0dp"
@@ -652,7 +593,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Seleccionar Plan"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/text_primary"
                             android:textStyle="bold"
                             android:paddingStart="22dp"
                             android:paddingEnd="22dp"
@@ -664,13 +605,10 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="20dp"/>
-
+            </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
+
 
     </ScrollView>
 

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:id="@+id/contenedor_fila"
@@ -13,13 +16,15 @@
         android:paddingTop="14dp"
         android:paddingBottom="14dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:background="@color/app_background">
 
         <ImageView
             android:id="@+id/img_icono_fila"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:src="@drawable/ic_pesa_historial"/>
+            android:src="@drawable/ic_pesa_historial"
+            android:background="@color/black"/>
 
         <View
             android:layout_width="14dp"
@@ -32,7 +37,7 @@
             android:layout_weight="1"
             android:text="Viernes, 5 de Julio"
             android:textSize="15sp"
-            android:textColor="#000000"/>
+            android:textColor="@color/white"/>
 
         <ImageView
             android:layout_width="16dp"
@@ -47,6 +52,6 @@
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#E5E5E5"/>
+        android:background="@color/surface_alt"/>
 
 </LinearLayout>

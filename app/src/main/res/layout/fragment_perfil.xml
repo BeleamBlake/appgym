@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajuste visual de fondo. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context="Perfil">
 
     <ScrollView
@@ -16,70 +18,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="15dp"/>
 
             <!-- ===== Fila: Membresia / Estado ... Cerrar sesion ===== -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="34dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:background="@drawable/bg_header_morado">
 
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="0dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/membresia_label"
-                        style="@style/formulario"/>
-
-                    <TextView
-                        android:id="@+id/txt_estado"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/membresia_activa"
-                        style="@style/estado_activo"/>
-
-                </LinearLayout>
-
-                <View
+              <TextView
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
-                <LinearLayout
-                    android:id="@+id/btn_cerrar_sesion"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_logout"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/cerrar_sesion"
-                        style="@style/relleno"/>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="0dp"/>
+                    android:text="Perfil"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"/>
 
             </LinearLayout>
 
@@ -245,7 +206,7 @@
                     android:id="@+id/btn_cambiar_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/boton_gris"
+                    android:backgroundTint="@color/color_login"
                     android:text="@string/bt_cambiar_pass"
                     android:textAllCaps="false"/>
 
@@ -287,28 +248,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/bg_header_morado">
 
-                <View
-                    android:layout_width="15dp"
-                    android:layout_height="0dp" />
 
                 <TextView
                     style="@style/registro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/resumen_actividad_label" />
+                    android:text="@string/resumen_actividad_label"
+                    android:layout_gravity="center_horizontal"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
 
-                <TextView
-                    style="@style/registro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/actividad_header" />
 
                 <View
                     android:layout_width="15dp"
@@ -316,16 +267,25 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_redondeado">
+    <TextView
+                style="@style/registro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/actividad_header" />
 
+    >
             <!-- Fila 1: clase de box -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
+
 
                 <View
                     android:layout_width="15dp"
@@ -504,6 +464,7 @@
                     android:layout_width="20dp"
                     android:layout_height="0dp"/>
 
+
             </LinearLayout>
 
             <View
@@ -548,7 +509,7 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="20dp"/>
-
+</LinearLayout>
         </LinearLayout>
 
     </ScrollView>

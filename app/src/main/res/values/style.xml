@@ -10,23 +10,25 @@
     </style>
 
     <style name="relleno">
-        <item name="fontFamily">sans-serif-thin</item>
-        <item name="android:titleTextColor">@color/black</item>
+        <item name="android:textColor">@color/accent_gold</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textStyle"> bold</item>
     </style>
 
     <style name="registro">
         <item name="android:textSize">30sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="fontFamily">monospace</item>
+        <item name="android:textColor">@color/white</item>
+
+
     </style>
 
     //formulario
 
     <style name="nombre">
-        <item name="titleTextColor">@color/black</item>
-        <item name="android:textSize">15sp</item>
-        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/accent_gold_light</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">italic</item>
+
     </style>
 
     //ventana home

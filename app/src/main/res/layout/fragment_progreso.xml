@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".Progreso">
 
     <LinearLayout
@@ -37,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="Membresia:"
                     android:textSize="16sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,7 +48,7 @@
                     android:text="ACTIVA"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="#2E7D32"/>
+                    android:textColor="@color/success"/>
 
             </LinearLayout>
 
@@ -71,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:text="cerrar sesion"
                     android:textSize="11sp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/text_primary"/>
 
             </LinearLayout>
 
@@ -106,7 +109,7 @@
                 android:paddingEnd="18dp"
                 android:paddingBottom="10dp"
                 android:text="Registrar Entrada"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -122,7 +125,7 @@
             android:gravity="center"
             android:text="Historial de entradas"
             android:textSize="17sp"
-            android:textColor="#000000"/>
+            android:textColor="@color/text_primary"/>
 
         <View
             android:layout_width="0dp"
