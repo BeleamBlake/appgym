@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CAMBIOS DE INTERFAZ CHIDO: fondo y navegación. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
     tools:context=".MainActivity2">
 
 
-    <LinearLayout
-        android:id="@+id/ventanaInicial"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@color/app_background">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ventana para hacer el bloqueo"/>
 
-    </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contenedor_fragment"
         android:layout_width="match_parent"
@@ -37,10 +23,6 @@
         android:id="@+id/menuBajo"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="@color/surface"
-        app:itemIconTint="@color/bottom_nav_color"
-        app:itemTextColor="@color/bottom_nav_color"
-        app:itemRippleColor="@color/accent_red_soft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/barra">
 

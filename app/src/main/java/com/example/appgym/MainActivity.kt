@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             val contrasena = userpass.text.toString().trim()
             //Validamos que los campos no esten vacios
             if (correo.isEmpty() || contrasena.isEmpty()){
-                Toast.makeText(this, "No puede estar campos vacíos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "No pueden estar campos vacíos.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             //aqui inicia sesion en firebase

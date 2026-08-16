@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/app_background"
     tools:context=".Bloqueo">
 
     <LinearLayout
@@ -30,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Membresía vencida"
-            android:textColor="@color/danger"
+            android:textColor="#D32F2F"
             android:textSize="22sp"
             android:textStyle="bold"/>
 
@@ -40,7 +37,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
-            android:textColor="@color/text_secondary"
+            android:textColor="#455A64"
             android:textSize="16sp"
             android:gravity="center"/>
 
@@ -50,12 +47,9 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Volver"
-            android:textColor="@color/accent_gold"
-            android:backgroundTint="@color/surface"
+            android:textColor="#1976D2"
+            android:backgroundTint="#FFFFFF"
             android:layout_marginTop="15dp"/>
-
-
-
     </LinearLayout>
 
 </FrameLayout>

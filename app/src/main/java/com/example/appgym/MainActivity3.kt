@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class MainActivity3 : AppCompatActivity() {
+
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +27,15 @@ class MainActivity3 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        auth = FirebaseAuth.getInstance()
-        db = FirebaseFirestore.getInstance()
+        val btvolver = findViewById<Button>(R.id.btnvolver)
 
-        val bt_nuevo: Button = findViewById<Button>(R.id.nv_miembro)
-        val nombre = findViewById<EditText>(R.id.for_nom)
-        val ap = findViewById<EditText>(R.id.for_ap)
-        val cel = findViewById<EditText>(R.id.for_celular)
-        val  email = findViewById<EditText>(R.id.for_correo)
-        val password = findViewById<EditText>(R.id.for_pass)
+        btvolver.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-        bt_nuevo.setOnClickListener {
+       /* bt_nuevo.setOnClickListener {
             val correoRegex = Regex(SingletonData.arrayList_validaciones[0])
             val nom = nombre.text.toString().trim()
             val  ape = ap.text.toString().trim()
@@ -89,7 +88,7 @@ class MainActivity3 : AppCompatActivity() {
                         Toast.makeText(this, "Error en registro: ${tareaAuth.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }
-        }
+        }*/
 
     }
 
