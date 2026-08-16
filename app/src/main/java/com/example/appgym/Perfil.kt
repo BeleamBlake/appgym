@@ -1,6 +1,7 @@
 package com.example.appgym
 
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,6 +44,7 @@ class Perfil : Fragment() {
         val tvFechaNacimiento = view.findViewById<TextView>(R.id.txt_fecha_nacimiento)
         val tvContacto = view.findViewById<TextView>(R.id.txt_contacto)
         val tvMembresia = view.findViewById<TextView>(R.id.txt_num_membresia)
+        val tvEstadoMembresia = view.findViewById<TextView>(R.id.txt_estado)
 
         // Obtener el ID del usuario con sesión activa
         val userId = auth.currentUser?.uid ?: return
@@ -72,33 +74,27 @@ class Perfil : Fragment() {
                     val numMembresia = document.getLong("numeroMembresia")
                     tvMembresia.text = numMembresia?.toString() ?: "0"
 
+                    // 6. Estado de la membresía (Extracción y asignación de color)
+                    val estado = document.getString("estado") ?: "Desconocido"
+                    tvEstadoMembresia.text = estado.uppercase()
+
+                    if (estado.equals("activa", ignoreCase = true)) {
+                        tvEstadoMembresia.setTextColor(Color.GREEN)
+                    } else {
+                        tvEstadoMembresia.setTextColor(Color.RED)
+                    }
+
                 } else {
-                    Toast.makeText(context, "No se encontró el registro en la base de datos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "No se encontró el registro en la base de datos",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(context, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
+
     }
 }
-/*
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Perfil.
-         */
-        //TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Perfil().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-}*/

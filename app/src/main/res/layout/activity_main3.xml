@@ -8,149 +8,48 @@
     tools:context=".MainActivity3">
 
     <LinearLayout
+        android:id="@+id/bloqueMembresia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-<View
-    android:layout_width="0dp"
-    android:layout_height="15dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <View
-                android:layout_width="15dp"
-                android:layout_height="0dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/formulario"
-            style="@style/formulario"/>
-        </LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+
         <ImageView
+            android:id="@+id/iconLock"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_bloqueo"/>
+
+
+        <TextView
+            android:id="@+id/titleExpired"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_meditacion"/>
-</LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="10dp"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
+            android:text="Membresía vencida"
+            android:textColor="#D32F2F"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/messageExpired"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Tu membresía ha expirado. Por favor renueva para continuar accediendo al servicio."
+            android:textColor="#455A64"
+            android:textSize="16sp"
+            android:gravity="center"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_nombre">
-            <EditText
-                android:id="@+id/for_nom"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                style="@style/nombre"
-                android:hint="@string/nombre"
-                android:maxLength="15"
-                android:maxLines="1"
-                android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-<View
-    android:layout_width="0dp"
-    android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_nombre">
-                <EditText
-                    android:id="@+id/for_ap"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/apellido"
-                    android:maxLength="30"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_celular">
-                <EditText
-                    android:id="@+id/for_celular"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/telefono"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_correo">
-                <EditText
-                    android:id="@+id/for_correo"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:hint="@string/correo"
-                    android:maxLength="40"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="10dp"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_pass">
-                <EditText
-                    android:id="@+id/for_pass"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    style="@style/nombre"
-                    android:inputType="textPassword"
-                    android:hint="@string/pasword"
-                    android:maxLength="40"
-                    android:maxLines="1"
-                    android:singleLine="true"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-</LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="80dp"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
         <Button
-            android:id="@+id/nv_miembro"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnvolver"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="@string/bt_formulario"/>
-</LinearLayout>
-
+            android:text="Volver"
+            android:textColor="#1976D2"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginTop="15dp"/>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

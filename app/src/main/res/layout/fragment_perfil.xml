@@ -46,7 +46,7 @@
                         android:id="@+id/txt_estado"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/membresia_activa"
+                        android:text=""
                         style="@style/estado_activo"/>
 
                 </LinearLayout>
