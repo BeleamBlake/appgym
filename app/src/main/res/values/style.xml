@@ -6,7 +6,7 @@
         <item name="android:textColor">#F5D67F</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="fontFamily">serif</item>
+
     </style>
 
     <style name="relleno">

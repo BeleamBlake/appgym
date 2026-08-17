@@ -1,9 +1,11 @@
 package com.example.appgym
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.Fragment
 
 class Membresia : Fragment() {
@@ -13,43 +15,76 @@ class Membresia : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_membresia, container, false)
+        return inflater.inflate(
+            R.layout.fragment_membresia,
+            container,
+            false
+        )
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val vistaFechas = view.findViewById<View>(R.id.vista_fechas)
-        val vistaTarjetas = view.findViewById<View>(R.id.vista_tarjetas)
-        val btnVerMembresias = view.findViewById<View>(R.id.btn_ver_membresias)
+        val vistaFechas =
+            view.findViewById<View>(R.id.vista_fechas)
 
-        // Al tocar "Ver Membresias": se oculta la vista de fechas
-        // y aparece el acordeon de tarjetas, todo dentro del mismo Fragment.
+
+        val btnVerMembresias =
+            view.findViewById<View>(R.id.btn_ver_membresias)
+
+        // Abrir historial en Dialog
         btnVerMembresias.setOnClickListener {
-            vistaFechas.visibility = View.GONE
-            vistaTarjetas.visibility = View.VISIBLE
+
+            val dialog = Dialog(requireContext())
+
+            dialog.requestWindowFeature(
+                Window.FEATURE_NO_TITLE
+            )
+
+            val vistaHistorial = layoutInflater.inflate(
+                R.layout.historial_membresia,
+                null
+            )
+
+            dialog.setContentView(vistaHistorial)
+
+            dialog.window?.setBackgroundDrawableResource(
+                android.R.color.transparent
+            )
+
+            dialog.show()
+
+            dialog.window?.setLayout(
+                (resources.displayMetrics.widthPixels * 0.95).toInt(),
+                (resources.displayMetrics.heightPixels * 0.90).toInt()
+            )
         }
 
-        // Conectamos cada header con su body del acordeon
+        // Tarjeta 1
         configurarTarjetaExpandible(
             view,
-            headerId = R.id.header_plan1,
-            bodyId = R.id.body_plan1,
-            flechaId = R.id.icono_flecha_plan1
+            R.id.header_plan1,
+            R.id.body_plan1,
+            R.id.icono_flecha_plan1
         )
 
+        // Tarjeta 2
         configurarTarjetaExpandible(
             view,
-            headerId = R.id.header_plan2,
-            bodyId = R.id.body_plan2,
-            flechaId = R.id.icono_flecha_plan2
+            R.id.header_plan2,
+            R.id.body_plan2,
+            R.id.icono_flecha_plan2
         )
 
+        // Tarjeta 3
         configurarTarjetaExpandible(
             view,
-            headerId = R.id.header_plan3,
-            bodyId = R.id.body_plan3,
-            flechaId = R.id.icono_flecha_plan3
+            R.id.header_plan3,
+            R.id.body_plan3,
+            R.id.icono_flecha_plan3
         )
     }
 
@@ -59,17 +94,28 @@ class Membresia : Fragment() {
         bodyId: Int,
         flechaId: Int
     ) {
-        val header = view.findViewById<View>(headerId)
-        val body = view.findViewById<View>(bodyId)
-        val flecha = view.findViewById<View>(flechaId)
+
+        val header =
+            view.findViewById<View>(headerId)
+
+        val body =
+            view.findViewById<View>(bodyId)
+
+        val flecha =
+            view.findViewById<View>(flechaId)
 
         header.setOnClickListener {
-            val estaVisible = body.visibility == View.VISIBLE
+
+            val estaVisible =
+                body.visibility == View.VISIBLE
 
             if (estaVisible) {
+
                 body.visibility = View.GONE
                 flecha.rotation = 0f
+
             } else {
+
                 body.visibility = View.VISIBLE
                 flecha.rotation = 180f
             }

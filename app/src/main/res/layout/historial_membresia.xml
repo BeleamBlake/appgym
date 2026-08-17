@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CAMBIOS DE INTERFAZ CHIDO: interfaz Progreso adaptada al estilo de Clases -->
+<!-- CAMBIOS DE INTERFAZ CHIDO: pantalla historial de membresías -->
 
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
-    tools:context=".Progreso">
+    android:background="@color/app_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- CAMBIOS DE INTERFAZ CHIDO: Header morado -->
+        <!-- ===== HEADER ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,70 +31,50 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Progreso"
+                android:text="Historial de membresías"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="?attr/selectableItemBackground">
-
-
-
-            </LinearLayout>
-
         </LinearLayout>
 
-        <!-- CAMBIOS DE INTERFAZ CHIDO: Botón superpuesto al header -->
+        <!-- ===== DESCRIPCIÓN ===== -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-20dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/bg_redondeado"
+            android:elevation="3dp">
 
             <TextView
-                android:id="@+id/btn_registrar_entrada"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:background="@drawable/bg_redondeado"
-                android:elevation="3dp"
-                android:text="Registrar Entrada"
-                android:textSize="14sp"
+                android:text="Planes anteriores"
+                android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Consulta las membresías que has utilizado anteriormente."
+                android:textSize="13sp"
                 android:textColor="@color/text_primary"/>
 
         </LinearLayout>
 
         <View
             android:layout_width="0dp"
-            android:layout_height="20dp"/>
+            android:layout_height="16dp"/>
 
-        <!-- CAMBIOS DE INTERFAZ CHIDO: Título -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Historial de entradas"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@color/text_primary"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="10dp"/>
-
-        <!-- CAMBIOS DE INTERFAZ CHIDO: Lista -->
+        <!-- ===== HISTORIAL ===== -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_historial"
+            android:id="@+id/rv_historial_membresias"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -104,7 +82,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp"
-            tools:listitem="@layout/item_entrada_historial"/>
+            tools:listitem="@layout/item_historial_membresia"/>
 
     </LinearLayout>
 

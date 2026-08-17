@@ -27,6 +27,8 @@
         android:textColor="@color/text_primary"
         android:textSize="36sp"
         android:textStyle="bold"
+        android:src="@drawable/bg_chip_morado"
+
 
         />
 
@@ -126,10 +128,11 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@drawable/fondo_boton"
+        android:backgroundTint="@color/accent_red"
         android:text="REGISTRAR"
         android:textAllCaps="false"
         android:textColor="@color/text_primary"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        />
 
 </LinearLayout>
