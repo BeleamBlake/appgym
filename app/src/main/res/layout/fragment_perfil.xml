@@ -488,7 +488,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/clases_racha_label"
-                    style="@style/nombre"/>
+                    style="@style/nombre"
+                    />
 
                 <TextView
                     android:id="@+id/txt_clases_racha"
@@ -498,7 +499,27 @@
                     style="@style/nombre"/>
 
             </LinearLayout>
+<LinearLayout
+    android:id="@+id/btn_mis_reservas"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_redondeado"
 
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis Reservas"
+        android:layout_gravity="center_vertical"
+        style="@style/nombre"
+        />
+</LinearLayout>
             <View
                 android:layout_width="0dp"
                 android:layout_height="20dp"/>

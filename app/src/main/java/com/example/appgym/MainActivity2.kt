@@ -43,12 +43,11 @@ class MainActivity2 : AppCompatActivity() {
         menuBajo = findViewById(R.id.menuBajo)
         menuBajo.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
-                R.id.item_home -> home()
                 R.id.item_perfil -> Perfil()
                 R.id.item_progreso -> Progreso()
                 R.id.item_clases -> Clases()
                 R.id.item_membresia -> Membresia()
-                else -> home()
+                else -> Perfil()
             }
             cargarFragment(fragment)
             true
@@ -83,7 +82,7 @@ class MainActivity2 : AppCompatActivity() {
                 } else {
                     menuBajo.visibility = View.VISIBLE
                     if (primerCarga && savedInstanceState == null) {
-                        cargarFragment(home())
+                        cargarFragment(Perfil())
                         primerCarga = false
                     }
                 }
@@ -151,9 +150,9 @@ class MainActivity2 : AppCompatActivity() {
 
         // Configuración de la navegación inferior
         menuBajo = findViewById(R.id.menuBajo)
-        menuBajo.setOnItemSelectedListener { item ->
-            val fragment: Fragment = when (item.itemId) {
-                R.id.item_home -> home()
+        menuBajo.setOnItemSelectedListener { item ->: Fragment = when (item.itemId) {
+                R.id.it
+            val fragmentem_home -> home()
                 R.id.item_perfil -> Perfil()
                 R.id.item_progreso -> Progreso()
                 R.id.item_clases -> Clases()

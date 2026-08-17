@@ -1,11 +1,15 @@
 package com.example.appgym
 
 
+import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -95,6 +99,58 @@ class Perfil : Fragment() {
             .addOnFailureListener { exception ->
                 Toast.makeText(context, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
+        val btnMisReservas = view.findViewById<LinearLayout>(R.id.btn_mis_reservas)
+
+        btnMisReservas.setOnClickListener {
+
+            val dialog = Dialog(requireContext())
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+
+            val vistaReservas = layoutInflater.inflate(
+                R.layout.dialog_mis_reservas,
+                null
+            )
+
+            dialog.setContentView(vistaReservas)
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog.show()
+
+            dialog.window?.setLayout(
+                (resources.displayMetrics.widthPixels * 0.95).toInt(),
+                (resources.displayMetrics.heightPixels * 0.90).toInt()
+            )
+
+            // Boton de cerrar
+            vistaReservas.findViewById<ImageView>(R.id.btn_cerrar_reservas)
+                .setOnClickListener {
+                    dialog.dismiss()
+                }
+
+            // ===== Agregar las clases reservadas, una por una =====
+            val contenedor = vistaReservas.findViewById<LinearLayout>(R.id.contenedor_reservas)
+
+            // TODO: reemplazar esta lista fija por las reservas reales del usuario
+            val misReservas = listOf(
+                "Yoga - Lunes 08:00",
+                "Spinning - Miercoles 09:30"
+            )
+
+            if (misReservas.isEmpty()) {
+                val txtVacio = TextView(requireContext())
+                txtVacio.text = "No tienes reservas activas"
+                txtVacio.setTextColor(resources.getColor(R.color.text_primary, null))
+                contenedor.addView(txtVacio)
+            } else {
+                for (reserva in misReservas) {
+                    val txt = TextView(requireContext())
+                    txt.text = "• $reserva"
+                    txt.textSize = 15f
+                    txt.setTextColor(resources.getColor(R.color.text_primary, null))
+                    txt.setPadding(0, 12, 0, 12)
+                    contenedor.addView(txt)
+                }
+            }
+        }
 
     }
 }

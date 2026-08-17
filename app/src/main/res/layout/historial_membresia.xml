@@ -36,6 +36,13 @@
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"/>
 
+            <ImageView
+                android:id="@+id/btn_cerrar_historial"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_cerrar_x"
+              />
+
         </LinearLayout>
 
         <!-- ===== DESCRIPCIÓN ===== -->

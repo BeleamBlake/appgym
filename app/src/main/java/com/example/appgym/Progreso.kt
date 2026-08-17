@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -89,6 +90,7 @@ class Progreso : Fragment() {
         cargarUltimosRegistros()
     }
 
+
     private fun cargarUltimosRegistros() {
         val userId = auth.currentUser?.uid ?: return
         db.collection("progreso")
@@ -147,6 +149,12 @@ class Progreso : Fragment() {
         val dialog = AlertDialog.Builder(requireContext())
             .setView(vista)
             .create()
+
+        // Boton de cerrar (X)
+        vista.findViewById<ImageView>(R.id.btn_cerrar_registrar)
+            .setOnClickListener {
+                dialog.dismiss()
+            }
 
         // 3. Envío del nuevo registro a Firestore
         btnRegistrar.setOnClickListener {
@@ -212,5 +220,7 @@ class Progreso : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
     }
+
 }
