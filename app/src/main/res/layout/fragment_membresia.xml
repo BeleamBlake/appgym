@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -31,17 +31,17 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/bg_header_morado">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Membresía"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Membresía"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"/>
+            </LinearLayout>
 
-             <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -78,80 +78,80 @@
 
                 <LinearLayout
 
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="vertical"
-                   android:background="@drawable/bg_tarjeta_clase"
-                   android:layout_marginBottom="10dp">
-                   <LinearLayout
-                       android:id="@+id/vista_fechas"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:orientation="horizontal"
-                       android:layout_gravity="center_horizontal">
-                <TextView
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Miembro desde: "
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"/>
-
-                    <TextView
-                        android:id="@+id/txt_miembro_desde"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_tarjeta_clase"
+                    android:layout_marginBottom="10dp">
+                    <LinearLayout
+                        android:id="@+id/vista_fechas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"/>
-                   </LinearLayout>
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
 
-                   <LinearLayout
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:orientation="horizontal"
-                       android:layout_gravity="center_horizontal">
-                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Miembro desde: "
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
 
+                        <TextView
+                            android:id="@+id/txt_miembro_desde"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:textColor="@color/text_primary"/>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Inicio de plan actual: "
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"/>
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inicio de plan actual: "
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
 
 
-                    <TextView
-                        android:id="@+id/txt_inicio_plan"
+                        <TextView
+                            android:id="@+id/txt_inicio_plan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="16sp"
+                            android:textColor="@color/text_primary"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="16sp"
-                        android:textColor="@color/text_primary"/>
-                   </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Proxima Fecha de Renovacion: "
-                       android:textSize="16sp"
-                       android:textStyle="bold"
-                       android:textColor="@color/text_primary"/>
-                    <TextView
-                        android:id="@+id/txt_proxima_renovacion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"/>
-</LinearLayout>
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Proxima Fecha de Renovacion: "
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+                        <TextView
+                            android:id="@+id/txt_proxima_renovacion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -164,68 +164,70 @@
                     android:padding="10dp"
                     android:background="@drawable/bg_tarjeta_clase"
                     >
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="10dp">
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Plan Actual: "
-                        android:textSize="15sp"
-                        android:textColor="@color/text_primary"/>
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:id="@+id/plan_actual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Plan Actual: "
+                            android:textSize="15sp"
+                            android:textColor="@color/text_primary"/>
 
-                    <TextView
-                        android:id="@+id/txt_plan_actual"
+                        <TextView
+                            android:id="@+id/txt_plan_actual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"/>
+                        android:orientation="horizontal">
 
-                </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:paddingEnd="5dp"
-                        android:src="@drawable/ic_pesa_historial"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:paddingEnd="5dp"
+                            android:src="@drawable/ic_pesa_historial"/>
 
 
 
-                    <TextView
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Beneficios del plan actual"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Beneficios del plan actual"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/text_primary"/>
+                        android:layout_height="43dp"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-           </LinearLayout>
+                        <TextView
+                            android:id="@+id/beneficios_plan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp" />
 
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:id="@+id/beneficios_plan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textSize="14sp"
-                        android:textColor="@color/text_primary"/>
-
-                </LinearLayout>
+                    </LinearLayout>
 
 
                     <TextView
@@ -242,7 +244,7 @@
                         android:paddingBottom="12dp"
                         android:background="@drawable/boton_rojo_registrar"/>
                 </LinearLayout>
-                </LinearLayout>
+            </LinearLayout>
 
 
 
@@ -573,7 +575,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-            </LinearLayout>
+        </LinearLayout>
 
 
 

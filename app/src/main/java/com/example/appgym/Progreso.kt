@@ -30,6 +30,8 @@ private const val ARG_PARAM2 = "param2"
 
 // Modelo de datos mapeado directamente con Firestore
 data class RegistroProgreso(
+    val memberId: String = "",
+    val uid: String = "",
     val peso: Double = 0.0,
     val estatura: Double = 0.0,
     val imc: Double = 0.0,
@@ -92,28 +94,61 @@ class Progreso : Fragment() {
 
 
     private fun cargarUltimosRegistros() {
+
         val userId = auth.currentUser?.uid ?: return
-        db.collection("progreso")
-            .whereEqualTo("uid", userId)
-            .orderBy("fecha", Query.Direction.DESCENDING) // Los más recientes primero
-            .limit(10) // Límite estricto de 10 registros
-            .addSnapshotListener { querySnapshot, error ->
-                if (error != null) {
-                    Log.e("ProgresoFragment", "Error al cargar registros: ${error.message}")
-                    return@addSnapshotListener
+
+        db.collection("usuarios")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { documento ->
+
+                val memberId = documento.getString("memberId")
+
+                if (memberId.isNullOrEmpty()) {
+                    Log.e(
+                        "ProgresoFragment",
+                        "No se encontró memberId"
+                    )
+                    return@addOnSuccessListener
                 }
 
-                if (querySnapshot != null) {
-                    listaProgreso.clear()
-                    for (doc in querySnapshot.documents) {
-                        val registro = doc.toObject(RegistroProgreso::class.java)
-                        if (registro != null) {
-                            listaProgreso.add(registro)
+                db.collection("progreso")
+                    .whereEqualTo("memberId", memberId)
+                    .orderBy("fecha", Query.Direction.DESCENDING)
+                    .limit(10)
+                    .addSnapshotListener { querySnapshot, error ->
+
+                        if (error != null) {
+                            Log.e(
+                                "ProgresoFragment",
+                                "Error al cargar registros: ${error.message}"
+                            )
+                            return@addSnapshotListener
+                        }
+
+                        if (querySnapshot != null) {
+
+                            listaProgreso.clear()
+
+                            for (doc in querySnapshot.documents) {
+
+                                val registro =
+                                    doc.toObject(RegistroProgreso::class.java)
+
+                                if (registro != null) {
+                                    listaProgreso.add(registro)
+                                }
+                            }
+
+                            adapter.notifyDataSetChanged()
                         }
                     }
-                    // Notifica al adaptador que la lista se actualizó
-                    adapter.notifyDataSetChanged()
-                }
+            }
+            .addOnFailureListener { e ->
+                Log.e(
+                    "ProgresoFragment",
+                    "Error obteniendo usuario: ${e.message}"
+                )
             }
     }
 
@@ -158,38 +193,98 @@ class Progreso : Fragment() {
 
         // 3. Envío del nuevo registro a Firestore
         btnRegistrar.setOnClickListener {
+
             val pesoStr = txtPeso.text.toString()
             val estaturaStr = txtEstatura.text.toString()
             val grasaStr = txtGrasa.text.toString()
             val userId = auth.currentUser?.uid ?: return@setOnClickListener
 
             if (pesoStr.isEmpty() || estaturaStr.isEmpty()) {
-                Toast.makeText(context, "Por favor ingresa peso y estatura", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "Por favor ingresa peso y estatura",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
-            val peso = pesoStr.toDoubleOrNull() ?: 0.0
-            val estatura = estaturaStr.toDoubleOrNull() ?: 0.0
+            val peso = pesoStr.toDoubleOrNull()
+            val estatura = estaturaStr.toDoubleOrNull()
             val grasa = grasaStr.toDoubleOrNull() ?: 0.0
-            val imc = if (estatura > 0) peso / (estatura * estatura) else 0.0
 
-            val nuevoRegistro = hashMapOf(
-                "uid" to userId,
-                "peso" to peso,
-                "estatura" to estatura,
-                "grasaCorporal" to grasa,
-                "imc" to String.format(Locale.US, "%.2f", imc).toDouble(),
-                "fecha" to FieldValue.serverTimestamp()
-            )
+            if (peso == null || estatura == null || estatura <= 0) {
+                Toast.makeText(
+                    context,
+                    "Ingresa valores válidos",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
 
-            db.collection("progreso")
-                .add(nuevoRegistro)
-                .addOnSuccessListener {
-                    Toast.makeText(context, "Registro guardado correctamente", Toast.LENGTH_SHORT).show()
-                    dialog.dismiss()
+            val imc = peso / (estatura * estatura)
+
+            // Obtener el perfil del usuario para conseguir su memberId
+            db.collection("usuarios")
+                .document(userId)
+                .get()
+                .addOnSuccessListener { documento ->
+
+                    val memberId = documento.getString("memberId")
+
+                    if (memberId.isNullOrEmpty()) {
+                        Toast.makeText(
+                            context,
+                            "No se encontró el memberId del usuario",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return@addOnSuccessListener
+                    }
+
+                    val nuevoRegistro = hashMapOf(
+                        "memberId" to memberId,
+                        "uid" to userId,
+                        "peso" to peso,
+                        "estatura" to estatura,
+                        "grasaCorporal" to grasa,
+                        "imc" to String.format(
+                            Locale.US,
+                            "%.2f",
+                            imc
+                        ).toDouble(),
+                        "fecha" to FieldValue.serverTimestamp()
+                    )
+
+                    db.collection("progreso")
+                        .add(nuevoRegistro)
+                        .addOnSuccessListener {
+                            Toast.makeText(
+                                context,
+                                "Registro guardado correctamente",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            dialog.dismiss()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(
+                                context,
+                                "Error al guardar: ${e.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            Log.e(
+                                "ProgresoFragment",
+                                "Error guardando progreso",
+                                e
+                            )
+                        }
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(context, "Error al guardar: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "Error al obtener el perfil: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
 

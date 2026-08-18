@@ -55,7 +55,7 @@
                         android:singleLine="true"
                         android:textStyle="italic"
                         android:textColor="@color/accent_gold"
-                        android:text="pruebadiecisiete@web.com"/>
+                        android:text="prueba@demo.com"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -88,7 +88,7 @@
                         android:singleLine="true"
                         android:textStyle="italic"
                         android:textColor="@color/accent_gold"
-                        android:text="170225"/>
+                        android:text="ExoFit2026!"/>
 
 
                 </com.google.android.material.textfield.TextInputLayout>
