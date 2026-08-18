@@ -1,10 +1,9 @@
 package com.example.appgym
-
-
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,19 +13,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Perfil.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Perfil : Fragment() {
 
     private val auth = FirebaseAuth.getInstance()
@@ -35,15 +26,12 @@ class Perfil : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
-
         return inflater.inflate(R.layout.fragment_perfil, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         val tvNombre = view.findViewById<TextView>(R.id.txt_nombre_miembro)
         val tvCorreo = view.findViewById<TextView>(R.id.txt_correo)
@@ -51,7 +39,6 @@ class Perfil : Fragment() {
         val tvContacto = view.findViewById<TextView>(R.id.txt_contacto)
         val tvMembresia = view.findViewById<TextView>(R.id.txt_num_membresia)
         val tvEstadoMembresia = view.findViewById<TextView>(R.id.txt_estado)
-
 
         val userId = auth.currentUser?.uid ?: return
 
@@ -62,24 +49,16 @@ class Perfil : Fragment() {
                 if (!querySnapshot.isEmpty) {
                     val document = querySnapshot.documents[0]
 
-
                     val nombre = document.getString("nombre") ?: ""
                     val apellido = document.getString("apellido") ?: ""
                     tvNombre.text = "$nombre $apellido".trim()
 
-
                     tvCorreo.text = document.getString("correo") ?: auth.currentUser?.email
-
-
                     tvFechaNacimiento.text = document.getString("fechaNacimiento") ?: "Sin fecha"
-
-
                     tvContacto.text = document.getString("celular") ?: "Sin número"
 
-
-                    val numMembresia = document.get("numeroMembresia")?.toString()?:"sin numero"
+                    val numMembresia = document.get("numeroMembresia")?.toString() ?: "sin numero"
                     tvMembresia.text = numMembresia
-
 
                     val estado = document.getString("estado") ?: "Desconocido"
                     tvEstadoMembresia.text = estado.uppercase()
@@ -102,7 +81,7 @@ class Perfil : Fragment() {
                 Toast.makeText(context, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
 
-        // cerrar sesion
+        // Botón Cerrar Sesión
         val btnCerrarSesion = view.findViewById<LinearLayout>(R.id.btn_cerrar_sesion)
         btnCerrarSesion.setOnClickListener {
             auth.signOut()
@@ -113,15 +92,15 @@ class Perfil : Fragment() {
             requireActivity().finish()
         }
 
+        // Botón Mis Reservas sincronizado con "realizarReserva"
         val btnMisReservas = view.findViewById<LinearLayout>(R.id.btn_mis_reservas)
-
         btnMisReservas.setOnClickListener {
 
             val dialog = Dialog(requireContext())
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
             val vistaReservas = layoutInflater.inflate(
-                R.layout.dialog_mis_reservas,
+                R.layout.listasreservas,
                 null
             )
 
@@ -134,37 +113,52 @@ class Perfil : Fragment() {
                 (resources.displayMetrics.heightPixels * 0.90).toInt()
             )
 
-            // Boton de cerrar
+            // Botón de cerrar del diálogo
             vistaReservas.findViewById<ImageView>(R.id.btn_cerrar_reservas)
                 .setOnClickListener {
                     dialog.dismiss()
                 }
 
-            // agregar las clases reservadas, una por una
-            val contenedor = vistaReservas.findViewById<LinearLayout>(R.id.contenedor_reservas)
+            // Configuración del RecyclerView usando el ID (reservalista) de listasreservas.xml
+            val rvMisReservas = vistaReservas.findViewById<RecyclerView>(R.id.reservalista)
+            rvMisReservas.layoutManager = LinearLayoutManager(requireContext())
 
-            // TODO: reemplazar esta lista fija por las reservas reales del usuario
-            val misReservas = listOf(
-                "Yoga - Lunes 08:00",
-                "Spinning - Miercoles 09:30"
-            )
+            val listaReservas = mutableListOf<ClasesGym>()
+            val adaptadorReservas = ClasesAdapter(listaReservas) { _ ->
+                // Acción opcional al hacer clic en una tarjeta de reserva
+            }
+            rvMisReservas.adapter = adaptadorReservas
 
-            if (misReservas.isEmpty()) {
-                val txtVacio = TextView(requireContext())
-                txtVacio.text = "No tienes reservas activas"
-                txtVacio.setTextColor(resources.getColor(R.color.text_primary, null))
-                contenedor.addView(txtVacio)
-            } else {
-                for (reserva in misReservas) {
-                    val txt = TextView(requireContext())
-                    txt.text = "• $reserva"
-                    txt.textSize = 15f
-                    txt.setTextColor(resources.getColor(R.color.text_primary, null))
-                    txt.setPadding(0, 12, 0, 12)
-                    contenedor.addView(txt)
-                }
+            val currentUserId = auth.currentUser?.uid
+
+            if (currentUserId != null) {
+                // Consultamos la colección "reservas" filtrando por "id_miembros"
+                // para que coincida exactamente con lo que guardas en realizarReserva
+                db.collection("reservas")
+                    .whereEqualTo("id_miembros", currentUserId)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        listaReservas.clear()
+                        for (document in documents) {
+                            val nombreClase = document.getString("nombre_clase") ?: "Clase"
+                            val horaClase = document.getString("hora") ?: "00:00"
+                            val entrenador = document.getString("entrenador") ?: ""
+
+                            val reservaItem = ClasesGym(
+                                nombreClase = nombreClase,
+                                nombreEntrenador = entrenador,
+                                horaClase = horaClase,
+                                numeroLugares = ""
+                            )
+                            listaReservas.add(reservaItem)
+                        }
+                        adaptadorReservas.notifyDataSetChanged()
+                    }
+                    .addOnFailureListener { e ->
+                        Log.e("PerfilFragment", "Error al cargar reservas", e)
+                        Toast.makeText(context, "Error al cargar reservas", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
-
     }
 }

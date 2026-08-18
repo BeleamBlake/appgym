@@ -10,38 +10,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- ===== HEADER ===== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="16dp"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:background="@drawable/bg_header_morado">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Mis Reservas"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"/>
 
-            <ImageView
-                android:id="@+id/btn_cerrar_reservas"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/ic_cerrar_x"
-                android:background="?attr/selectableItemBackgroundBorderless"/>
 
-        </LinearLayout>
 
-        <!-- ===== Contenedor donde se agregan las reservas por codigo ===== -->
         <LinearLayout
             android:id="@+id/contenedor_reservas"
             android:layout_width="match_parent"
@@ -49,6 +21,56 @@
             android:orientation="vertical"
             android:padding="16dp"/>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clases"/>
+        </LinearLayout>
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clase"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/verde_activo"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hora"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/verde_activo"/>
+        </LinearLayout>
+    <View
+        android:layout_width="150dp"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora"
+            android:textColor="@color/verde_activo"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class ClasesFragment : Fragment() {
@@ -90,16 +91,18 @@ class ClasesFragment : Fragment() {
     }
 
     private fun realizarReserva(clase: ClasesGym) {
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid?: ""
         // Datos que guardaremos en la colección "reservas" de Firestore
         val nuevaReserva = hashMapOf(
             "fechaCreacion" to com.google.firebase.Timestamp.now(),
             "fecha_clases" to com.google.firebase.Timestamp.now(),
             "id_clases" to "",
-            "id_miembros" to "",
+            "id_miembros" to currentUserId,
             "nombre_clase" to clase.nombreClase,
             "hora" to clase.horaClase,
             "entrenador" to clase.nombreEntrenador,
             "estado" to "confirmada"
+
 
         )
 

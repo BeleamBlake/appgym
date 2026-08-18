@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:backgroundTint="@color/app_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/app_background">
+
+        <!-- ===== HEADER ===== -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="10dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/bg_header_morado">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Mis Reservas"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+
+            <ImageView
+                android:id="@+id/btn_cerrar_reservas"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_cerrar_x"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reservalista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/dialog_mis_reservas">
+
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
