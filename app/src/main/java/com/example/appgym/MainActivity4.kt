@@ -27,12 +27,11 @@ class MainActivity4 : AppCompatActivity() {
             insets
         }
 
-        // 1. Asignar el TextView
+
         miembro = findViewById(R.id.miembro)
 
-        // 2. Conectar con Firebase Auth y Firestore
-        // (MainActivity3 guarda cada miembro en Firestore, coleccion "miembros",
-        //  usando el uid del usuario como id del documento — por eso leemos de ahi)
+        // conectar con firebase auth y firestore
+
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
@@ -42,7 +41,7 @@ class MainActivity4 : AppCompatActivity() {
             return
         }
 
-        // 3. Traer el dato del miembro logueado
+        // dato del miembro logueado
         db.collection("miembros").document(uid)
             .get()
             .addOnSuccessListener { snapshot ->

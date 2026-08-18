@@ -53,7 +53,7 @@ class Membresia : Fragment() {
                 (resources.displayMetrics.heightPixels * 0.90).toInt()
             )
 
-            // Conectar el boton de cerrar del dialog
+            // conectar el boton de cerrar del dialog
             vistaHistorial.findViewById<ImageView>(R.id.btn_cerrar_historial)
                 .setOnClickListener {
                     dialog.dismiss()

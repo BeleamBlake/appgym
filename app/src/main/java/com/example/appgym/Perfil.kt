@@ -2,6 +2,7 @@ package com.example.appgym
 
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -34,15 +35,16 @@ class Perfil : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
-        // Inflamos el layout tradicionalmente
+
         return inflater.inflate(R.layout.fragment_perfil, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Referencias a los TextViews usando findViewById con la vista recibida
+
         val tvNombre = view.findViewById<TextView>(R.id.txt_nombre_miembro)
         val tvCorreo = view.findViewById<TextView>(R.id.txt_correo)
         val tvFechaNacimiento = view.findViewById<TextView>(R.id.txt_fecha_nacimiento)
@@ -50,7 +52,7 @@ class Perfil : Fragment() {
         val tvMembresia = view.findViewById<TextView>(R.id.txt_num_membresia)
         val tvEstadoMembresia = view.findViewById<TextView>(R.id.txt_estado)
 
-        // Obtener el ID del usuario con sesión activa
+
         val userId = auth.currentUser?.uid ?: return
 
         db.collection("miembros")
@@ -60,25 +62,25 @@ class Perfil : Fragment() {
                 if (!querySnapshot.isEmpty) {
                     val document = querySnapshot.documents[0]
 
-                    // 1. Nombre completo (nombre + apellido)
+
                     val nombre = document.getString("nombre") ?: ""
                     val apellido = document.getString("apellido") ?: ""
                     tvNombre.text = "$nombre $apellido".trim()
 
-                    // 2. Correo electrónico
+
                     tvCorreo.text = document.getString("correo") ?: auth.currentUser?.email
 
-                    // 3. Fecha de nacimiento
+
                     tvFechaNacimiento.text = document.getString("fechaNacimiento") ?: "Sin fecha"
 
-                    // 4. Contacto (mapeado desde el campo 'celular' de Firestore)
+
                     tvContacto.text = document.getString("celular") ?: "Sin número"
 
-                    // 5. Número de membresía (es un número en Firestore, se convierte a Long/String)
-                    val numMembresia = document.getLong("numeroMembresia")
-                    tvMembresia.text = numMembresia?.toString() ?: "0"
 
-                    // 6. Estado de la membresía (Extracción y asignación de color)
+                    val numMembresia = document.get("numeroMembresia")?.toString()?:"sin numero"
+                    tvMembresia.text = numMembresia
+
+
                     val estado = document.getString("estado") ?: "Desconocido"
                     tvEstadoMembresia.text = estado.uppercase()
 
@@ -99,6 +101,18 @@ class Perfil : Fragment() {
             .addOnFailureListener { exception ->
                 Toast.makeText(context, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
+
+        // cerrar sesion
+        val btnCerrarSesion = view.findViewById<LinearLayout>(R.id.btn_cerrar_sesion)
+        btnCerrarSesion.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
         val btnMisReservas = view.findViewById<LinearLayout>(R.id.btn_mis_reservas)
 
         btnMisReservas.setOnClickListener {
@@ -126,7 +140,7 @@ class Perfil : Fragment() {
                     dialog.dismiss()
                 }
 
-            // ===== Agregar las clases reservadas, una por una =====
+            // agregar las clases reservadas, una por una
             val contenedor = vistaReservas.findViewById<LinearLayout>(R.id.contenedor_reservas)
 
             // TODO: reemplazar esta lista fija por las reservas reales del usuario

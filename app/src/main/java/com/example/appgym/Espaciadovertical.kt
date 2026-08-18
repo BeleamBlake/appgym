@@ -5,8 +5,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-// Agrega espacio vertical entre items de un RecyclerView, sin tener
-// que ponerle margenes al layout de cada fila.
+// agrega espacio vertical entre items de un RecyclerView
 class EspaciadoVertical(private val espacioDp: Int) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(

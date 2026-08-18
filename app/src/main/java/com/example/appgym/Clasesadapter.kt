@@ -38,7 +38,7 @@ class ClasesAdapter(
         holder.sala.text = clase.sala
         holder.cupo.text = "${clase.lugaresOcupados}/${clase.lugaresTotales}"
 
-        // Icono y color de fondo segun el tipo de clase
+        // icono y color de fondo segun el tipo
         when (clase.tipo) {
             "yoga" -> {
                 holder.fondoIcono.setBackgroundResource(R.drawable.bg_icono_lavanda)
@@ -58,7 +58,7 @@ class ClasesAdapter(
             }
         }
 
-        // Si la clase esta llena, el cupo se resalta distinto (capacidad maxima alcanzada)
+        // si la clase esta llena, el cupo se resalta distinto (capacidad maxima alcanzada)
         if (clase.lugaresOcupados >= clase.lugaresTotales) {
             holder.cupo.setBackgroundResource(R.drawable.bg_badge_verde)
             holder.cupo.text = "Completo"

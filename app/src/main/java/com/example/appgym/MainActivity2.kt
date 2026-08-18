@@ -90,10 +90,10 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun mostrarPantallaBloqueo() {
-        // Ocultar menú inferior para evitar que navegue a otras secciones
+        // cultar menú inferior
         menuBajo.visibility = View.GONE
 
-        // Reemplazar con el Fragment de bloqueo
+        // fragment de bloqueo
         cargarFragment(MembresiaBloqueadaFragment())
     }
 

@@ -22,62 +22,26 @@
             android:orientation="vertical">
 
             <!-- CAMBIOS DE INTERFAZ CHIDO: Header con el mismo estilo de Clases -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingTop="10dp"
-                android:paddingBottom="34dp"
-                android:paddingStart="18dp"
-                android:paddingEnd="18dp"
-                android:background="@drawable/bg_header_morado">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Perfil"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_primary"/>
-
-                <LinearLayout
-                    android:id="@+id/btn_cerrar_sesion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/ic_logout"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <!-- CAMBIOS DE INTERFAZ CHIDO: Tarjeta principal superpuesta al header -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-20dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="-20dp"
                 android:layout_marginEnd="16dp"
-                android:orientation="vertical"
-                android:padding="18dp"
                 android:background="@drawable/bg_redondeado"
-                android:elevation="3dp">
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="18dp">
 
                 <!-- Membresía -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -86,44 +50,82 @@
                         android:orientation="vertical">
 
                         <TextView
+                            style="@style/formulario"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/membresia_label"
-                            style="@style/formulario"/>
+                            android:text="@string/membresia_label" />
 
                         <TextView
                             android:id="@+id/txt_estado"
+                            style="@style/estado_activo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
-                            style="@style/estado_activo"/>
+                            android:text="" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_header_morado"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="18dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="18dp"
+                            android:paddingBottom="34dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Perfil"
+                                android:textColor="@color/text_primary"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/btn_cerrar_sesion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/ic_logout" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <TextView
+                        style="@style/relleno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/miembro_label"
-                        style="@style/relleno"/>
+                        android:text="@string/miembro_label" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="18dp"/>
+                    android:layout_height="18dp" />
 
                 <!-- Avatar + datos -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/img_avatar"
@@ -131,23 +133,23 @@
                             android:layout_height="80dp"
                             android:scaleType="centerCrop"
                             android:src="@drawable/avatar_placeholder"
-                            app:shapeAppearanceOverlay="@style/CircleImageStyle"/>
+                            app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
                         <View
                             android:layout_width="0dp"
-                            android:layout_height="6dp"/>
+                            android:layout_height="6dp" />
 
                         <TextView
+                            style="@style/relleno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/editar"
-                            style="@style/relleno"/>
+                            android:text="@string/editar" />
 
                     </LinearLayout>
 
                     <View
                         android:layout_width="18dp"
-                        android:layout_height="0dp"/>
+                        android:layout_height="0dp" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -156,34 +158,34 @@
                         android:orientation="vertical">
 
                         <TextView
+                            style="@style/relleno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/miembro_label"
-                            style="@style/relleno"/>
+                            android:text="@string/miembro_label" />
 
                         <TextView
                             android:id="@+id/txt_nombre_miembro"
+                            style="@style/nombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
-                            style="@style/nombre"/>
+                            android:text="" />
 
                         <View
                             android:layout_width="0dp"
-                            android:layout_height="8dp"/>
+                            android:layout_height="8dp" />
 
                         <TextView
+                            style="@style/relleno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/correo_label"
-                            style="@style/relleno"/>
+                            android:text="@string/correo_label" />
 
                         <TextView
                             android:id="@+id/txt_correo"
+                            style="@style/nombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
-                            style="@style/nombre"/>
+                            android:text="" />
 
                     </LinearLayout>
 
@@ -191,32 +193,32 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="12dp"/>
+                    android:layout_height="12dp" />
 
                 <!-- Fecha de nacimiento -->
                 <TextView
+                    style="@style/relleno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fecha_nacimiento_label"
-                    style="@style/relleno"/>
+                    android:text="@string/fecha_nacimiento_label" />
 
                 <TextView
                     android:id="@+id/txt_fecha_nacimiento"
+                    style="@style/nombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    style="@style/nombre"/>
+                    android:text="" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="12dp"/>
+                    android:layout_height="12dp" />
 
                 <!-- Contacto -->
                 <TextView
+                    style="@style/relleno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/contacto_label"
-                    style="@style/relleno"/>
+                    android:text="@string/contacto_label" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -225,21 +227,21 @@
 
                     <TextView
                         android:id="@+id/txt_contacto"
+                        style="@style/nombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
-                        style="@style/nombre"/>
+                        android:text="" />
 
                     <View
                         android:layout_width="8dp"
-                        android:layout_height="0dp"/>
+                        android:layout_height="0dp" />
 
                     <ImageView
                         android:id="@+id/btn_editar_contacto"
                         android:layout_width="18dp"
                         android:layout_height="18dp"
-                        android:src="@drawable/ic_pencil"
-                        android:background="?attr/selectableItemBackgroundBorderless"/>
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_pencil" />
 
                 </LinearLayout>
 
