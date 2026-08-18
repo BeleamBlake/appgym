@@ -156,7 +156,7 @@ class Progreso : Fragment() {
                 dialog.dismiss()
             }
 
-        // envío del nuevo registro a firestore
+        // 3. Envío del nuevo registro a Firestore
         btnRegistrar.setOnClickListener {
             val pesoStr = txtPeso.text.toString()
             val estaturaStr = txtEstatura.text.toString()

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
-    tools:context=".Clases">
+    android:background="@color/app_background">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -27,11 +25,6 @@
             android:paddingEnd="18dp"
             android:background="@drawable/bg_header_morado">
 
-            <!--            <ImageView-->
-            <!--                android:id="@+id/btn_menu"-->
-            <!--                android:layout_width="24dp"-->
-            <!--                android:layout_height="24dp"-->
-            <!--                android:src="@drawable/ic_menu_hamburguesa"/>-->
 
             <TextView
                 android:layout_width="0dp"
@@ -51,7 +44,7 @@
 
         </LinearLayout>
 
-        <!-- ===== Selector de fecha, superpuesto sobre el header ===== -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,18 +88,13 @@
             android:layout_width="0dp"
             android:layout_height="12dp"/>
 
-        <!-- ===== Lista de clases ===== -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_clases"
+            android:id="@+id/lista_clases"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp"
-            tools:listitem="@layout/item_clase"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/claseslista">
 
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

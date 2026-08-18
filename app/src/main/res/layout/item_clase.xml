@@ -1,141 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente. -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
     android:orientation="horizontal"
-    android:background="@drawable/bg_tarjeta_clase"
+    android:gravity="center_vertical"
     android:padding="14dp"
-    android:gravity="center_vertical">
+    android:background="@drawable/bg_redondeado">
 
-    <!-- Icono de color segun el tipo de clase -->
-    <FrameLayout
+    <ImageView
+        android:id="@+id/img_icono_clase"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:id="@+id/fondo_icono_clase"
-        android:background="@drawable/bg_icono_lavanda">
+        android:padding="10dp"
+        android:src="@drawable/ic_persona" />
 
-        <ImageView
-            android:id="@+id/img_icono_clase"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_yoga"/>
-
-    </FrameLayout>
-
-    <View
-        android:layout_width="14dp"
-        android:layout_height="0dp"/>
-
-    <!-- Nombre, instructor, horario, sala -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginStart="12dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_nombre_clase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yoga"
+            android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"/>
+            tools:text="Yoga" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="4dp"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/txt_entrenador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:src="@drawable/ic_persona"/>
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:id="@+id/txt_instructor_clase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ana Lopez"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            tools:text="Ana Lopez" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="3dp"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/txt_horario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:src="@drawable/ic_reloj"/>
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:id="@+id/txt_horario_clase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="08:00 - 09:00"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            tools:text="08:00 - 09:00" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="3dp"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/txt_sala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-            <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                android:src="@drawable/ic_ubicacion"/>
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:id="@+id/txt_sala_clase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sala A"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"/>
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            tools:text="Sala A" />
 
     </LinearLayout>
 
-    <!-- Badge de cupo disponible, arriba a la derecha -->
     <TextView
-        android:id="@+id/txt_cupo_clase"
+        android:id="@+id/txt_cupos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:text="12/20"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@color/success"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
-        android:background="@drawable/bg_badge_verde"/>
+        android:textColor="@color/verde_activo"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:text="12/20" />
 
 </LinearLayout>
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+     CAMBIOS DE INTERFAZ CHIDO: ajustes visuales de color/fuente.
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_tarjeta_clase"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+          <FrameLayout
+              android:layout_width="48dp"
+              android:layout_height="48dp"
+              android:id="@+id/fondo_icono_clase"
+              android:background="@drawable/bg_icono_lavanda">
+
+              <ImageView
+                  android:id="@+id/img_icono_clase"
+                  android:layout_width="26dp"
+                  android:layout_height="26dp"
+                  android:layout_gravity="center"
+                  android:src="@drawable/ic_yoga"/>
+
+          </FrameLayout>
+
+          <View
+              android:layout_width="14dp"
+              android:layout_height="0dp"/>
+
+
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:orientation="vertical">
+
+              <TextView
+                  android:id="@+id/txt_nombre_clase"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Yoga"
+                  android:textSize="16sp"
+                  android:textStyle="bold"
+                  android:textColor="@color/text_primary"/>
+
+              <View
+                  android:layout_width="0dp"
+                  android:layout_height="4dp"/>
+
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical">
+                  <ImageView
+                      android:layout_width="12dp"
+                      android:layout_height="12dp"
+                      android:src="@drawable/ic_persona"/>
+                  <View
+                      android:layout_width="4dp"
+                      android:layout_height="0dp"/>
+                  <TextView
+                      android:id="@+id/txt_instructor_clase"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Ana Lopez"
+                      android:textSize="12sp"
+                      android:textColor="@color/text_secondary"/>
+              </LinearLayout>
+
+              <View
+                  android:layout_width="0dp"
+                  android:layout_height="3dp"/>
+
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical">
+                  <ImageView
+                      android:layout_width="12dp"
+                      android:layout_height="12dp"
+                      android:src="@drawable/ic_reloj"/>
+                  <View
+                      android:layout_width="4dp"
+                      android:layout_height="0dp"/>
+                  <TextView
+                      android:id="@+id/txt_horario_clase"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="08:00 - 09:00"
+                      android:textSize="12sp"
+                      android:textColor="@color/text_secondary"/>
+              </LinearLayout>
+
+              <View
+                  android:layout_width="0dp"
+                  android:layout_height="3dp"/>
+
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center_vertical">
+                  <ImageView
+                      android:layout_width="12dp"
+                      android:layout_height="12dp"
+                      android:src="@drawable/ic_ubicacion"/>
+                  <View
+                      android:layout_width="4dp"
+                      android:layout_height="0dp"/>
+                  <TextView
+                      android:id="@+id/txt_sala_clase"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Sala A"
+                      android:textSize="12sp"
+                      android:textColor="@color/text_secondary"/>
+              </LinearLayout>
+
+          </LinearLayout>
+
+
+          <TextView
+              android:id="@+id/txt_cupo_clase"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="top"
+              android:text="12/20"
+              android:textSize="12sp"
+              android:textStyle="bold"
+              android:textColor="@color/success"
+              android:paddingStart="10dp"
+              android:paddingEnd="10dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:background="@drawable/bg_badge_verde"/>
+
+      </LinearLayout>-->

@@ -10,6 +10,7 @@
     tools:context=".Membresia">
 
     <ScrollView
+        
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,10 +33,11 @@
                 android:background="@drawable/fondo_rueditas">
 
                 <TextView
+                    android:id="@+id/membresiaMensual"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Membresia Ruedas de Entrenamiento"
+                    android:text="Membresia Mensual"
                     android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
@@ -57,9 +59,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/descripcionMensual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proxima Fecha de Renovacion: 21/01/2010"
+                    android:text=""
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"/>
 
@@ -134,10 +137,11 @@
                 android:background="@drawable/fondo_choza">
 
                 <TextView
+                    android:id="@+id/membreisaTrimestral"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Membresia Choza de los pequeñoines"
+                    android:text="Membresia Trimestral"
                     android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
@@ -159,9 +163,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/membreisaTrimestral"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proxima Fecha de Renovacion: 03/02/2010"
+                    android:text=""
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"/>
 
@@ -169,30 +174,6 @@
                     android:layout_width="0dp"
                     android:layout_height="10dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Plan Actual: Chosa de los pequeñoines"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="14dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Suplementos ilimitados"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Acceso a maquinas sin restriccion"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -246,7 +227,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Membresia Pro Max Mameitor"
+                    android:text="Membresia Anual"
                     android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
@@ -268,9 +249,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/membresiaAnual"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proxima Fecha de Renovacion: 21/01/2010"
+                    android:text=""
                     android:textSize="14sp"
                     android:textColor="@color/text_primary"/>
 
@@ -278,48 +260,6 @@
                     android:layout_width="0dp"
                     android:layout_height="10dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Plan Actual: Premiun Pro Max Mameitor"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="14dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Clases ilimitadas"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Suplementos ilimitados"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Acceso a maquinas sin restriccion"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="• Prioridad a reserva de clases"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_primary"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="16dp"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

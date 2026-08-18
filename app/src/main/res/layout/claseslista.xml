@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_redondeado"
+        android:gravity="center">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/black">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/in_reserva" />
+    <View
+        android:layout_width="25dp"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<TextView
+    android:id="@+id/nombre_clase"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nombre Clase"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="@color/color_login"/>
+        <TextView
+            android:id="@+id/nombre_entrenador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrenador"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_login"/>
+    </LinearLayout>
+<View
+    android:layout_width="150dp"
+    android:layout_height="0dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/num_reserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5/20"
+            android:textSize="20sp"
+            android:textColor="@color/verde_activo"/>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

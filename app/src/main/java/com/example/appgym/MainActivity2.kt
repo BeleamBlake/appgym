@@ -45,10 +45,10 @@ class MainActivity2 : AppCompatActivity() {
             val fragment: Fragment = when (item.itemId) {
                 R.id.item_perfil -> Perfil()
                 R.id.item_progreso -> Progreso()
-                R.id.item_clases -> Clases()
+                R.id.item_clases -> ClasesFragment()
                 R.id.item_membresia -> Membresia()
                 else -> Perfil()
-            }
+            } as Fragment
             cargarFragment(fragment)
             true
         }

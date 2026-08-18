@@ -4,55 +4,39 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appgym.R.id.lista_clases
 
-class Clases : Fragment() {
+class ClasesFragment : Fragment() {
+
+    private lateinit var rvClases: RecyclerView
+    private lateinit var adapter: ClasesAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_clases, container, false)
-    }
+    ): View? {
+        // Inflamos el layout de tu fragmento
+        val view = inflater.inflate(R.layout.fragment_clases, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        //rvClases.layoutManager = LinearLayoutManager(requireContext())
+        // 1. Inicializamos el RecyclerView
+        rvClases = view.findViewById(lista_clases)
+        rvClases.layoutManager = LinearLayoutManager(requireContext())
 
-        val rvClases = view.findViewById<RecyclerView>(R.id.rv_clases)
-
-        // TODO: reemplazar por los datos reales que traigas de tu API
-        // (GET /api/clases del dia seleccionado, por ejemplo)
-        val listaClases = listOf(
-            ClaseGrupal("Yoga", "Ana Lopez", "08:00 - 09:00", "Sala A", 12, 20, "yoga"),
-            ClaseGrupal("Spinning", "Carlos Ruiz", "09:30 - 10:30", "Sala B", 15, 18, "spinning"),
-            ClaseGrupal("Funcional", "Maria Torres", "11:00 - 12:00", "Sala C", 8, 15, "funcional"),
-            ClaseGrupal("Pilates", "Ana Lopez", "17:00 - 18:00", "Sala A", 10, 20, "pilates")
+        // 2. Creamos datos de prueba (Mock Data) de tus entrenadores
+        val misClases = listOf(
+            ClasesGym("Zumba", "Entrenador: María", "5/20"),
+            ClasesGym("Spinning", "Entrenador: Carlos", "12/15"),
+            ClasesGym("Crossfit", "Entrenador: Roberto", "10/10")
         )
 
-        val adapter = ClasesAdapter(listaClases) { claseSeleccionada ->
-            // Aca abrimos el detalle de la clase tocada
-            // (descripcion, entrenador, duracion, capacidad, boton reservar/cancelar)
-        }
-
-        rvClases.layoutManager = LinearLayoutManager(requireContext())
+        // 3. Conectamos el adaptador al RecyclerView
+        adapter = ClasesAdapter(misClases)
         rvClases.adapter = adapter
 
-        // Espacio entre tarjetas, sin tener que tocar el XML de cada item
-        rvClases.addItemDecoration(EspaciadoVertical(12))
-
-        view.findViewById<ImageView>(R.id.btn_filtro).setOnClickListener {
-            val vistaDialog = layoutInflater.inflate(R.layout.dialog_filtros_clases, null)
-            val dialog = android.app.AlertDialog.Builder(requireContext())
-                .setView(vistaDialog)
-                .create()
-            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-            dialog.show()
-        }
+        return view
     }
-
-
 }

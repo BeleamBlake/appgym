@@ -35,21 +35,24 @@ android {
 }
 
 dependencies {
+    // AndroidX & Material Design
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
-    implementation("com.google.firebase:firebase-auth:22.3.1")
-    implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
-    implementation("com.google.firebase:firebase-firestore:24.11.1")
-    implementation("com.google.firebase:firebase-database:20.3.0")
-    implementation("com.google.firebase:firebase-analytics:22.0.0")
-    implementation(platform("com.google.firebase:firebase-bom:34.17.0"))
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+
+    // Firebase (Gestión unificada con BoM)
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-analytics")
-    implementation ("androidx.core:core-ktx:1.13.1")   // versión actual de core-ktx
-    implementation ("com.google.firebase:firebase-firestore:24.11.1")
-    //implementation ("com.google.firebase:firebase-firestore-ktx")
+
+    // Corrutinas para Firebase Tasks
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)

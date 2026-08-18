@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             val contrasena = userpass.text.toString().trim()
             //Validamos que los campos no esten vacios
             if (correo.isEmpty() || contrasena.isEmpty()){
-                Toast.makeText(this, "No pueden estar campos vacíos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "los campos no pueden estar vacios.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             //aqui inicia sesion en firebase
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish() // este metodo funciona para que se cierre el login y no puede regresar
                     }else{
-                        Toast.makeText(this, "Error: ${tareaAuth.exception?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Correo o Contraseña invalido", Toast.LENGTH_SHORT).show()
                     }
                 }
 
