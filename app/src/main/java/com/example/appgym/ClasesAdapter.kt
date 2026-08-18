@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-    class ClasesAdapter(private val listaClases: List<ClasesGym>) : RecyclerView.Adapter<ClasesAdapter.ClaseViewHolder>() {
+    class ClasesAdapter(private val listaClases: List<ClasesGym>,
+        private val onClaseClick: (ClasesGym) -> Unit) : RecyclerView.Adapter<ClasesAdapter.ClaseViewHolder>() {
 
         // Esta clase interna conecta las vistas de tu claseslista.xml
         class ClaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -32,6 +33,10 @@ import androidx.recyclerview.widget.RecyclerView
          holder.tvEntrenador.text = clase.nombreEntrenador
             holder.tvhora.text = clase.horaClase
             holder.tvlugar.text = clase.numeroLugares
+
+            holder.itemView.setOnClickListener {
+                onClaseClick(clase)
+            }
 
         }
 
