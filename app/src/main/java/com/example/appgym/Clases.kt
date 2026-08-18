@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,44 +28,91 @@ class ClasesFragment : Fragment() {
         // 1. Inicializamos el RecyclerView
         rvClases.layoutManager = LinearLayoutManager(requireContext())
         // 3. Conectamos el adaptador al RecyclerView
-        adapter = ClasesAdapter(lista_clases)
-        rvClases.adapter = adapter
+        adapter = ClasesAdapter(lista_clases){ claseSeleccionadas->
+            realizarReserva(claseSeleccionadas)
 
+        }
+        rvClases.adapter = adapter
         cargarClasesDesdeFirestore()
         return view
     }
 
     private fun cargarClasesDesdeFirestore() {
-        // Consultamos la colección "clases" que se ve en tu captura de Firebase
         db.collection("clases")
             .get()
             .addOnSuccessListener { result ->
-                lista_clases.clear() // Limpiamos por si acaso
+                lista_clases.clear()
+
+                if (result.isEmpty) {
+                    adapter.notifyDataSetChanged()
+                    return@addOnSuccessListener
+                }
+
                 for (document in result) {
-                    // Extraemos los campos tal cual los guardaste en Firestore
                     val nombre = document.getString("nombre") ?: "Clase sin nombre"
-                    val entrenadorId = document.getString("entrenador") ?: "Sin entrenador"
+                    val entrenadorId = document.getString("nombreE") ?: "Sin entrenador"
                     val hora = document.getString("hora") ?: "00:00"
                     val capacidad = document.getLong("capacidad")?.toInt() ?: 20
 
-                    // Como tu modelo actual usa "lugares" (ej. "5/20"), puedes armarlo dinámicamente o adaptarlo
-                    val lugaresDisponibles = "0/$capacidad" // O el valor que lleves en reservas
-                    // Creamos el objeto con los datos de Firebase
-                    val claseGym = ClasesGym(
-                        nombreClase = nombre,
-                        nombreEntrenador = "ID: $entrenadorId", // O puedes mapearlo al nombre real del entrenador si lo prefieres
-                        horaClase = hora,
-                        numeroLugares = lugaresDisponibles
-                    )
+                    // Consultamos las reservas actuales para esta clase específica
+                    db.collection("reservas")
+                        .whereEqualTo("nombre_clase", nombre)
+                        .get()
+                        .addOnSuccessListener { resultReservas ->
+                            val inscritos = resultReservas.size()
+                            val lugarDisponible = "$inscritos/$capacidad"
 
-                    lista_clases.add(claseGym)
+                            val clasesGym = ClasesGym(
+                                nombreClase = nombre,
+                                nombreEntrenador = entrenadorId,
+                                horaClase = hora,
+                                numeroLugares = lugarDisponible
+                            )
+
+                            lista_clases.add(clasesGym)
+                            adapter.notifyDataSetChanged()
+                        }
+                        .addOnFailureListener {
+                            val claseGym = ClasesGym(
+                                nombreClase = nombre,
+                                nombreEntrenador = entrenadorId,
+                                horaClase = hora,
+                                numeroLugares = "0/$capacidad"
+                            )
+                            lista_clases.add(claseGym)
+                            adapter.notifyDataSetChanged()
+                        }
                 }
-
-                // Notificamos al adaptador que los datos llegaron para que actualice la pantalla
-                adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
                 Log.e("ClasesFragment", "Error al cargar clases", e)
+            }
+    }
+
+    private fun realizarReserva(clase: ClasesGym) {
+        // Datos que guardaremos en la colección "reservas" de Firestore
+        val nuevaReserva = hashMapOf(
+            "fechaCreacion" to com.google.firebase.Timestamp.now(),
+            "fecha_clases" to com.google.firebase.Timestamp.now(),
+            "id_clases" to "",
+            "id_miembros" to "",
+            "nombre_clase" to clase.nombreClase,
+            "hora" to clase.horaClase,
+            "entrenador" to clase.nombreEntrenador,
+            "estado" to "confirmada"
+
+        )
+
+        // Insertamos el documento en la colección "reservas"
+        db.collection("reservas")
+            .add(nuevaReserva)
+            .addOnSuccessListener { documentReference ->
+                Toast.makeText(requireContext(), "¡Reserva exitosa para ${clase.nombreClase}!", Toast.LENGTH_SHORT).show()
+                // Opcional: Aquí podrías actualizar el contador visual de lugares si lo deseas
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Error al realizar la reserva", Toast.LENGTH_SHORT).show()
+                Log.e("ClasesFragment", "Error al guardar reserva", e)
             }
     }
 }
