@@ -57,18 +57,7 @@ class Membresia : Fragment() {
 
         // 3. Configurar el evento de clic del botón
         btnVerMembresias.setOnClickListener {
-            // AQUÍ VA LA LÓGICA PARA ABRIR TU OTRO FRAGMENTO (El de los planes)
-            // Ejemplo usando FragmentManager:
-            /*
-            val planesFragment = FragmentPlanes() // Reemplaza con el nombre real de tu clase Fragment
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, planesFragment) // Reemplaza 'fragment_container' con el ID de tu contenedor en el MainActivity
-                .addToBackStack(null)
-                .commit()
-            */
 
-            // Si estás usando Navigation Component, usarías esto en su lugar:
-            // findNavController().navigate(R.id.action_membresiaFragment_to_planesFragment)
         }
 
         // Cargar el estado

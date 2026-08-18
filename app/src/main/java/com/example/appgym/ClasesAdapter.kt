@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
             // NOTA: Asegúrate de que el ID en tu claseslista.xml para el entrenador sea este,
             // o cámbialo por el que le hayas puesto.
             val tvEntrenador: TextView = itemView.findViewById(R.id.nombre_entrenador)
+            val tvhora: TextView = itemView.findViewById(R.id.hora_clase)
+            val tvlugar: TextView = itemView.findViewById(R.id.num_reserva)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClaseViewHolder {
@@ -28,6 +30,8 @@ import androidx.recyclerview.widget.RecyclerView
 
             holder.tvNombreClase.text = clase.nombreClase
          holder.tvEntrenador.text = clase.nombreEntrenador
+            holder.tvhora.text = clase.horaClase
+            holder.tvlugar.text = clase.numeroLugares
 
         }
 

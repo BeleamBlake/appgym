@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/bg_redondeado"
         android:gravity="center">
 <LinearLayout
     android:layout_width="wrap_content"
@@ -37,12 +36,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Entrenador"
-            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/color_login"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/hora_clase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00"
+                android:textColor="@color/verde_activo"/>
+
+        </LinearLayout>
     </LinearLayout>
+
+
+
+
 <View
-    android:layout_width="150dp"
+    android:layout_width="30dp"
     android:layout_height="0dp"/>
 
     <LinearLayout
@@ -54,10 +68,14 @@
             android:id="@+id/num_reserva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5/20"
-            android:textSize="20sp"
+            android:text=""
             android:textColor="@color/verde_activo"/>
-
+<TextView
+    android:id="@+id/capacidad"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:textColor="@color/verde_activo"/>
 
     </LinearLayout>
 </LinearLayout>
